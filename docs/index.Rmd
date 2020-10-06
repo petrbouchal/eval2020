@@ -1,0 +1,91 @@
+---
+title: Efektivní a přehledná práce s daty <br />v prostředí jazyka R
+output:
+  html_document:
+    css: extra.css
+    toc: false
+    toc_depth: 3
+    toc_float:
+      collapset: false
+---
+
+```{r, include=F}
+library(fontawesome)
+
+col_icon <- "#00f"
+```
+
+
+> Příprava, materiály a prezentace k workshopu
+
+Vzdělávací workshop pro evaluátory, Konference Evaluační jednotky NOK, 5. listopadu 2020 (MMR)
+
+# {.tabset}
+
+## O workshopu
+
+Tento workshop je hlavně pro ty, kdo pracují s daty v Excelu nebo podobných nástrojích a občas si připadají, že jim tyto nástroje nestačí nebo jim proces analýzy přerůstá přes hlavu. Jeho cílem je pomoct účastníkům posunout svůj proces práce s daty blíž ke standardu používanému v čím dál více analytických týmech napříč obory a sektory. 
+
+Workshop na praktických příkladech účastníky provede prostředím jazyka R a programu RStudio. Účastníci se naučí pracovat s několika nástroji v jazyce R  díky kterým lze snadno dosáhnout efektivnější, přehlednější a udržitelnější práce s daty, od jejich úprav a čištění přes explorativní datovou analýzu po modelování a vizualizaci. 
+
+Účastníci se také seznámí s nástroji pro tvorbu automatizovaných reportů (včetně exportů do Wordu a PDF) a naučí se přímo v prostředí R využívat česká statistická, administrativní a geografická data. 
+
+Pro účast není třeba znalost programování nad rámec mírně pokročilé práce s daty v Excelu. Stačit bude běžný počítač; není třeba nic instalovat. 
+
+Lektor: [Petr Bouchal](https://petrbouchal.github.io)
+
+## Před workshopem
+
+### Technická příprava
+
+#### 1. Požadavky na počítač
+
+Na workshop vám bude stačit 
+
+- běžný počítač 
+- s moderním prohlížečem (Firefox, Chrome, Safari, Internet Explorer 11, Microsoft Edge). 
+
+Na operačním systému nezáleží.
+
+#### 2. RStudio Cloud
+
+Na workshopu budeme využívat službu RStudio Cloud. To nám umožní snadno se pustit do práce s RStudiem a R bez nutnosti cokoli instalovat, rozhraní je přitom stejné, jako byste si R a RStudio nainstalovali na svůj počítač, jen se vyhneme případným zádrhelům s instalací.
+
+(RStudio je jeden z programů, ve kterém se dají tvořit datové analýzy v jazyce R - existují i jiné, podobně jako existuj víc prohlížečů, přes které můžete koukat na webové stránky.)
+
+Budete potřebovat bezplatný účet v RStudio Cloud. Ten si snadno zřídíte na <https://rstudio.cloud/plans/free>, buď na emailovou adresu nebo přes Google účet, popř. Github účet, pokud ho náhodou máte (pokud nevíte, o co jde, nevadí - použijte email nebo Google účet). Bezplatný účet nabízí jen omezené využití, takže na dlouhodobé intenzivní používání to není, ale na worskhop to bude bohatě stačit.
+
+#### 3 Stažení materiálů
+
+Před workshopem zde najdete pracovní materiály ke stažení. Na začátku workshopu je přeneseme do RStudio Cloud, abychom s nimi mohli dál pracovat.
+
+### Volitelné nahlédnutí do světa R
+
+Pokud se nemůžete dočkat a R je pro vás úplně nové, doporučuju jedno z následujícího: 
+
+1) rozhlédnout se v tomto videu (cca 1 hodina):
+
+<p><a href="https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/?wvideo=hltkvqscdz"><img src="https://embedwistia-a.akamaihd.net/deliveries/4d5cca91aba7c7aad975ac5838c69217987a9e83.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=71a5d4e0" style="width: 400px; height: 225px;" width="400" height="225"></a></p><p><a href="https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/?wvideo=hltkvqscdz">A Gentle Introduction to Tidy Statistics in R - RStudio</a></p>
+
+2) nebo si pročíst úvod do bezplatné online knihy [R for Data Science](https://r4ds.had.co.nz/introduction.html); tento workshop sdílí pedagogický přístup knihy k programování s daty. 
+
+3) Alternativně, pokud si chcete na R malinko sáhnout, zkuste [jeden z úvodních interaktivních tutoriálů](https://rstudio.cloud/learn/primers/1.2) od RStudia.
+
+
+## Materiály pro práci na workshopu {#materialy}
+
+### `r fa("clock", fill = col_icon)` v přípravě
+
+Vraťte se prosím cca týden před workshopem.
+
+## Slides
+
+### `r fa("clock", fill = col_icon)` v přípravě
+
+Vraťte se prosím cca den před workshopem.
+
+## Kam dál po workshopu
+
+### `r fa("clock", fill = col_icon)` v přípravě
+
+Vraťte se prosím v den workshopu.
