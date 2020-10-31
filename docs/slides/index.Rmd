@@ -1,0 +1,243 @@
+---
+title: "Efektivní a přehledná práce s daty <br />v prostředí jazyka R"
+subtitle: "Workshop: konference EJ NOK 2020"
+author: "Petr Bouchal"
+date: 5. listopadu 2020
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, custom.css]
+    lib_dir: libs
+    yolo: false
+    mathjax: NULL
+    seal: true 
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [bottom, left, inverse]
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, echo = F,
+                      warning = F,
+                      dev = "ragg_png",
+                      fig.showtext = T,
+                      message = F)
+library(fontawesome)
+library(tidyverse)
+library(pragr)
+library(ptrr)
+library(ragg)
+
+ptrr::set_geom_defaults()
+update_geom_defaults("rect", list(fill = "blue"))
+
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#0000ff",
+  header_font_google = google_font("IBM Plex Sans"),
+  text_font_google   = google_font("IBM Plex Sans"),
+  code_font_google   = google_font("IBM Plex Mono"),
+  table_row_even_background_color = "fff"
+)
+```
+
+```{r fonts, include=FALSE}
+sysfonts::font_add_google("IBM Plex Sans", "Roboto")
+sysfonts::font_add_google("IBM Plex Sans Condensed", "Roboto Condensed")
+```
+
+```{r meta, echo=F}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Přehled nástrojů v prostředí R pro využití otevřených dat, mj. ČSÚ, Státní pokladny MF, Eurostatu a OECD",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "petrbouchal/petrbouchal.github.io") %>% 
+  meta_social(
+    title = "Jak se dostat k českým otevřeným datům v R",
+    url = "https://petrbouchal.github.io/slides/pssau2020-07/index.html",
+    image = "https://petrbouchal.github.io/slides/pssau2020-07/twitter_card.png",
+    image_alt = "První slide prezentace o využití otevřených dat v R",
+    og_type = "website",
+    og_locale = "cs_CZ",
+    og_author = "Petr Bouchal",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@petrbouchal"
+  ) %>% 
+  include_meta()
+```
+
+class: left, middle, inverse
+
+# Proč tu jsme: cíle pro dnešek
+
+---
+class: left, top
+
+.large[
+ 1\. Ujasnit si, kdy a proč použít na data programovací jazyk (R)
+]
+
+
+--
+
+.large[
+ 2\. Naučit se vyznat se v R a RStudiu
+]
+
+
+--
+
+.large[
+ 3\. Poznat nástroje na práci s daty
+]
+
+
+--
+
+.large[
+ 4\. Poznat nástroje na tvorbu výstupů
+]
+
+--
+
+.large[
+ 5\. Vědět, kde a jak se učit další věci
+]
+
+---
+
+class: left, middle, inverse
+
+# Jak na to půjdeme
+
+---
+class: left, top
+
+.large[
+1\. Motivace
+]
+
+--
+
+.large[
+2\. Stavební kameny
+]
+
+--
+
+.large[
+3\. Ukázkový projekt
+]
+
+--
+
+.large[
+4\. Další zdroje
+]
+
+
+---
+
+class: left, middle, inverse
+
+# Motivace: proč na data s kladivem
+
+---
+
+class: center, middle
+
+.large[
+
+[petrbouchal.xyz/eval2020](https://petrbouchal.xyz/eval2020)
+
+]
+
+---
+
+class: left, middle, inverse
+
+# Stavební kameny
+
+---
+class: left, top
+
+.large[
+1\. R a RStudio: prostředí
+]
+
+--
+
+.large[
+2\. Základní funkce a operace
+]
+
+--
+
+.large[
+3\. Práce s tabulkovými daty
+]
+
+--
+
+.large[
+4\. Nástroje na tvorbu výstupů
+]
+
+---
+class: left, top
+
+.large[
+**1\. R a RStudio: prostředí**
+
+2\. Základní funkce a operace
+
+3\. Práce s tabulkovými daty
+
+4\. Nástroje na tvorbu výstupů
+]
+---
+
+
+
+
+
+
+
+
+
+
+
+---
+class: inverse, middle, center
+
+.large[
+
+(Tato prezentace je také reprodukovatelná: Viz [<span style="text-decoration: underline; color: #fff">kód</span>](https://github.com/petrbouchal/eval2020/blob/main/docs/slides/index.Rmd).)
+
+Prezentaci samotnou najdete na [petrbouchal.xyz/eval2020/slides](https://petrbouchal.xyz/eval2020/slides).
+
+]
+
+---
+class: inverse, bottom, right
+layout: false
+
+.large[
+<a href="https://twitter.com/petrbouchal">`r fa("twitter", fill = "white")`</a> <a href="https://github.com/petrbouchal">`r fa("github", fill = "white")`</a> <a href="https://linkedin.com/in/petrbouchal">`r fa("linkedin", fill = "white")`</a> petrbouchal
+
+pbouchal@gmail.com
+
+]
+
+
+
+
+

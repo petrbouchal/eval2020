@@ -1,0 +1,6 @@
+.large {font-size: 45px; color: #000;}
+.medium {font-size: 30px; color: #000;}
+.inverse .large {font-size: 45px; color: #fff;}
+.inverse .medium {font-size: 30px; color: #fff;}
+
+

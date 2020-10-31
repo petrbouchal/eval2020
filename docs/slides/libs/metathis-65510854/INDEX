@@ -1,0 +1,12 @@
+include_meta            Include Metadata Tags in HTML Document
+is_meta                 metathis Object Checks and Coercions
+meta                    Initialize a List of HTML Metadata Tags
+meta_apple_itunes_app   Apple Smart Banner Meta Tag
+meta_apple_web_app      Apple Web App Meta Tags
+meta_general            General Metadata Tags
+meta_geo                Geotagging Metadata Tags
+meta_name               Create name/content metadata tag pairs
+meta_social             Social Media Metadata
+meta_tag                Create a metadata tag for attribute/value pairs
+meta_viewport           Viewport Meta Tag
+write_meta              Write Metadata Tags to a File

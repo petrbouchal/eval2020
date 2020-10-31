@@ -1,0 +1,36 @@
+Package: metathis
+Title: HTML Metadata Tags for R Markdown and Shiny
+Version: 0.1.0
+Authors@R: 
+    person(given = "Garrick",
+           family = "Aden-Buie",
+           role = c("aut", "cre"),
+           email = "garrick@adenbuie.com",
+           comment = c(ORCID = "0000-0002-7111-0077"))
+Description: Create <meta> tags for R Markdown HTML documents
+    and Shiny apps for social media cards, accessibility, and quality
+    search engine indexing.
+License: MIT + file LICENSE
+URL: https://github.com/gadenbuie/metathis
+BugReports: https://github.com/gadenbuie/metathis/issues
+Imports: htmltools, knitr, magrittr, purrr
+Suggests: rmarkdown, testthat (>= 2.1.0)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: metathis
+RemoteUsername: gadenbuie
+RemoteRef: 05f8ba1f
+RemoteSha: 05f8ba1feeff0c740fe4121f7732c8e06a4faffc
+GithubRepo: metathis
+GithubUsername: gadenbuie
+GithubRef: 05f8ba1f
+GithubSHA1: 05f8ba1feeff0c740fe4121f7732c8e06a4faffc
+NeedsCompilation: no
+Packaged: 2020-07-26 21:48:57 UTC; petr
+Author: Garrick Aden-Buie [aut, cre] (<https://orcid.org/0000-0002-7111-0077>)
+Maintainer: Garrick Aden-Buie <garrick@adenbuie.com>
+Built: R 4.0.0; ; 2020-07-26 21:48:58 UTC; unix
