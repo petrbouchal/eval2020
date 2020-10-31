@@ -9,6 +9,8 @@ output:
     lib_dir: libs
     yolo: false
     mathjax: NULL
+    includes:
+      in_header: meta.html
     seal: true 
     nature:
       ratio: 16:9
@@ -56,14 +58,14 @@ sysfonts::font_add_google("IBM Plex Sans Condensed", "Roboto Condensed")
 library(metathis)
 meta() %>%
   meta_general(
-    description = "Přehled nástrojů v prostředí R pro využití otevřených dat, mj. ČSÚ, Státní pokladny MF, Eurostatu a OECD",
+    description = "Workshop o datové analytice v R, konference EJ NOK říjen 2020",
     generator = "xaringan and remark.js"
   ) %>% 
-  meta_name("github-repo" = "petrbouchal/petrbouchal.github.io") %>% 
+  meta_name("github-repo" = "petrbouchal/eval2020") %>% 
   meta_social(
-    title = "Jak se dostat k českým otevřeným datům v R",
-    url = "https://petrbouchal.github.io/slides/pssau2020-07/index.html",
-    image = "https://petrbouchal.github.io/slides/pssau2020-07/twitter_card.png",
+    title = "Efektivní a přehledná práce s daty v prostředí jazyka R",
+    url = "https://petrbouchal.xyz/eval2020",
+    image = "https://petrbouchal.xyz/eval2020/slides/twitter_card.png",
     image_alt = "První slide prezentace o využití otevřených dat v R",
     og_type = "website",
     og_locale = "cs_CZ",
@@ -71,7 +73,8 @@ meta() %>%
     twitter_card_type = "summary_large_image",
     twitter_creator = "@petrbouchal"
   ) %>% 
-  include_meta()
+  write_meta("meta.html")
+
 ```
 
 class: left, middle, inverse
@@ -213,7 +216,12 @@ class: left, top
 
 
 
+---
+class: inverse, middle, center
 
+.large[
+V přípravě
+]
 
 ---
 class: inverse, middle, center
