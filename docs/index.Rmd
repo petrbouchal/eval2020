@@ -59,6 +59,12 @@ Budete potřebovat bezplatný účet v RStudio Cloud. Ten si snadno zřídíte n
 
 Před workshopem zde najdete pracovní materiály ke stažení. Na začátku workshopu je přeneseme do RStudio Cloud, abychom s nimi mohli dál pracovat.
 
+Adresa pro načtení materiálů do RStudio Cloud: <https://github.com/petrbouchal/eval2020>
+
+Adresa pro stažení materiálů: (např. pro vlastní potřebu / uchování; při workshopu by neměla být potřeba) <https://github.com/petrbouchal/eval2020/archive/main.zip>
+
+Repozitář s kódem na Githubu: <https://github.com/petrbouchal/eval2020/>
+
 ### Volitelné nahlédnutí do světa R
 
 Pokud se nemůžete dočkat a R je pro vás úplně nové, doporučuju jedno z následujícího: 
@@ -72,9 +78,17 @@ Pokud se nemůžete dočkat a R je pro vás úplně nové, doporučuju jedno z n
 3) Alternativně, pokud si chcete na R malinko sáhnout, zkuste [jeden z úvodních interaktivních tutoriálů](https://rstudio.cloud/learn/primers/1.2) od RStudia.
 
 
-## Materiály pro práci na workshopu {#materialy}
+## Materiály pro práci na workshopu {#materialy .tabset .tabset-pills}
 
-### `r fa("clock", fill = col_icon)` v přípravě
+### Materiály ke stažení
+
+Adresa pro načtení materiálů do RStudio Cloud: <https://github.com/petrbouchal/eval2020>
+
+Adresa pro stažení materiálů: (např. pro vlastní potřebu / uchování; při workshopu by neměla být potřeba) <https://github.com/petrbouchal/eval2020/archive/main.zip>
+
+Repozitář s kódem na Githubu: <https://github.com/petrbouchal/eval2020/>
+
+### Klávesové zkratky
 
 Vraťte se prosím cca týden před workshopem.
 
