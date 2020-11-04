@@ -118,7 +118,28 @@ Repozitář s kódem na Githubu: <https://github.com/petrbouchal/eval2020/>
 
 ### Klávesové zkratky
 
-Vraťte se prosím cca týden před workshopem.
+#### Znaky
+
+Win / Mac
+
+- AltGr+35 / Alt+3: #
+- AltGr+38 : &
+- AltGr+; (středník) nebo Alt+96 / : Alt + 1 na české Mac klávesnici: `` `  `` (backtick)
+- AltGr+, (čárka) nebo AltGr+60/ Alt+?/< : `<`
+- AltGr+, (tečka) nebo AltGr+62 / Alt+./< : `>`
+- AltGr+94: stříška `^`
+- AltGr+124: `|` 	Svislá čára
+- AltGr+125: `}` 	Zavřená složená závorka
+- AltGr+126: `~` 	Vlnovka
+
+#### RStudio
+
+Cmd pro Mac, Ctrl pro Windows
+
+- Cmd/Ctrl+M: `%>%` 
+- Cmd/Ctrl+Enter: spustit aktuální řádku kódu
+- Cmd/Ctrl+Shift+C: zakomentovat/odkomentovat aktuální řádek
+- Alt+- (minus): `<-` (znak přiřazení v R) 
 
 ## Slides 
 

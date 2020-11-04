@@ -18,6 +18,8 @@ sqrt(16)
 
 # Proměnné a datové typy --------------------------------------------------
 
+# <- je znak přiřazení: vezmi, co je vpravo, a zapiš to do objektu vlevo
+
 x <- 3
 
 y <- 4
