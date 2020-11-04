@@ -123,23 +123,35 @@ Repozitář s kódem na Githubu: <https://github.com/petrbouchal/eval2020/>
 Win / Mac
 
 - AltGr+35 / Alt+3: #
-- AltGr+38 : &
+- AltGr+38 / Alt+7: &
 - AltGr+; (středník) nebo Alt+96 / : Alt + 1 na české Mac klávesnici: `` `  `` (backtick)
 - AltGr+, (čárka) nebo AltGr+60/ Alt+?/< : `<`
 - AltGr+, (tečka) nebo AltGr+62 / Alt+./< : `>`
+
+Win: (na Macu buď anglická klávesnice, nebo na české Alt+klávesa, kde je znak vidět)
+
 - AltGr+94: stříška `^`
+- AltGr+123: `{` 	Otevřená složená závorka
 - AltGr+124: `|` 	Svislá čára
 - AltGr+125: `}` 	Zavřená složená závorka
 - AltGr+126: `~` 	Vlnovka
+- AltGr+91: `[` 	Otevřená hranatá závorka
+- AltGr+92: `\` 	Obracené lomítko
+- AltGr+93: `]` 	Zavřená hranatá závorka
 
 #### RStudio
 
 Cmd pro Mac, Ctrl pro Windows
 
-- Cmd/Ctrl+M: `%>%` 
-- Cmd/Ctrl+Enter: spustit aktuální řádku kódu
-- Cmd/Ctrl+Shift+C: zakomentovat/odkomentovat aktuální řádek
 - Alt+- (minus): `<-` (znak přiřazení v R) 
+- Cmd/Ctrl+M: `%>%` 
+
+- Cmd/Ctrl+Enter: spustit aktuální řádku kódu
+- Cmd/Ctrl+Shift+Enter: spustit celý skript
+
+- Cmd/Ctrl+Shift+C: zakomentovat/odkomentovat aktuální řádek
+- Cmd/Ctrl+Alt+I: nový code chunk v RMarkdown
+
 
 ## Slides 
 
