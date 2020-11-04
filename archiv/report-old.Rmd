@@ -1,0 +1,151 @@
+---
+title: "Poklesy mobility"
+author: "Student workshopu"
+date: "5. 11. 2020"
+output:
+  pdf_document: 
+    dev: cairo_pdf
+    df_print: kable
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = F)
+library(tidyverse)
+library(lubridate)
+library(knitr)
+
+Sys.setlocale(category = "LC_ALL", "cs_CZ.UTF-8") # výchozí čeština pro formátování, závisí na operačním systému
+```
+
+
+```{r}
+download.file("https://www.gstatic.com/covid19/mobility/Region_Mobility_Report_CSVs.zip",
+              destfile = "x.zip")
+unzip("x.zip", exdir = "data-zdroje/google/")
+```
+
+```{r}
+googledata <- read_csv("data-zdroje/google/2020_CZ_Region_Mobility_Report.csv")
+
+kraje_cesky <- read_csv("data-zdroje/prevodnik-kraju.csv")
+
+gmr_long <- googledata %>%
+  pivot_longer(cols = ends_with("from_baseline"), names_to = "promenna",
+               values_to = "pokles") %>%
+  rename(kraj_nazev = sub_region_1) %>% 
+  mutate(promenna = str_remove(promenna, "_percent_change_from_baseline")) %>%
+  left_join(kraje_cesky) %>% 
+  mutate(kraj_kratky = str_remove(kraj_nazev, "\\s?[Kk]raj\\s?"))
+
+cesko <- gmr_long %>%
+  filter(is.na(kraj_nazev)) %>%
+  select(-ends_with("code"))
+
+cesko_mesice <- cesko %>%
+  mutate(mesic = month(date)) %>%
+  group_by(mesic, promenna) %>%
+  summarise(pokles_prumer = mean(pokles))
+```
+
+```{r}
+cesko_mesice %>%
+  filter(mesic == 10) %>%
+  ungroup() %>%
+  select(Místo = promenna, Změna = pokles_prumer)
+```
+
+
+```{r}
+cesko %>%
+  ggplot(aes(date, pokles, colour = promenna)) +
+  geom_hline(yintercept = 0) +
+  geom_line() +
+  facet_wrap(facets = vars(promenna))
+```
+
+```{r}
+table(gmr_long$promenna)
+```
+
+
+```{r}
+regiony_prace <- gmr_long %>%
+  filter(!is.na(sub_region_1)) %>%
+  filter(promenna == "workplaces")
+```
+
+
+```{r}
+regiony_prace %>%
+  ggplot(aes(date, pokles)) +
+  geom_line() +
+  facet_wrap(~sub_region_1)
+```
+
+```{r}
+regiony_pracedomov <- gmr_long %>% 
+  mutate(denvtydnu = wday(date, week_start = 1)) %>%
+  filter(denvtydnu %in% 1:5) %>% 
+  filter(!is.na(kraj_kratky),
+         promenna %in% c("workplaces", "residential"))
+
+ggplot(regiony_pracedomov, aes(date, pokles, colour = promenna)) +
+  geom_line() +
+  facet_wrap(~ kraj_kratky) +
+  scale_color_viridis_d()
+```
+
+
+```{r}
+regiony_prace_tyden <- regiony_prace %>%
+  mutate(denvtydnu = wday(date, week_start = 1)) %>%
+  filter(denvtydnu == 2)
+
+ggplot(regiony_prace_tyden, aes(date, pokles)) +
+  geom_line() +
+  facet_wrap(~sub_region_1)
+```
+
+
+```{r}
+regiony_prace_pomesici <- regiony_prace %>% 
+  mutate(mesic = month(date)) %>% 
+  group_by(kraj_kratky, mesic) %>% 
+  summarise(pokles = mean(pokles))
+```
+
+```{r}
+
+```
+
+
+```{r}
+regiony_prace_pokles <- regiony_prace_tyden %>%
+  group_by(sub_region_1) %>%
+  filter(date == max(date)) %>%
+  ungroup() %>%
+  mutate(kraj_kratky = fct_reorder(kraj_kratky, desc(pokles)))
+
+posledniden <- max(regiony_prace_pokles$date)
+
+ggplot(regiony_prace_pokles, aes(pokles, kraj_kratky)) +
+  geom_col() +
+  geom_text(aes(label = pokles), nudge_x = -3) +
+  theme_minimal() +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(title = "Změna ", y = NULL)
+```
+
+
+```{r}
+kraje_geo <- RCzechia::kraje()
+kraje_geo %>%
+  left_join(regiony_prace_pokles, by = c("KOD_CZNUTS3" = "nuts_kod")) %>%
+  ggplot() +
+  geom_sf(aes(fill = pokles), colour = "white") +
+  theme_void()
+```
+
