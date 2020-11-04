@@ -1,0 +1,205 @@
+---
+title: 'Poklesy mobility podle dat Google Mobility'
+author: "Workshopper"
+date: "11. listopadu 2020"
+output:
+  word_document: default
+  html_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = F, message = F, dpi = 300)
+
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(writexl)
+
+Sys.setlocale(category = "LC_ALL", "cs_CZ.UTF-8") # výchozí čeština pro formátování, závisí na operačním systému
+```
+
+```{r stazeni-dat, eval=F}
+download.file("https://www.gstatic.com/covid19/mobility/Region_Mobility_Report_CSVs.zip",
+              destfile = "x.zip")
+unzip("x.zip", exdir = "data-zdroje/google/")
+```
+
+
+```{r nacteni-dat}
+googledata <- read_csv("data-zdroje/google/2020_CZ_Region_Mobility_Report.csv")
+```
+
+```{r uprava-dat}
+
+# přeneseno ze skriptu 02_tabulkova-data-reseni.R
+
+gd <- googledata %>%
+  select(-sub_region_2, -metro_area, -census_fips_code,
+         -country_region, -country_region_code) %>%
+  rename(kraj_nazev = sub_region_1,
+         kraj_kod_iso = iso_3166_2_code) %>%
+  replace_na(replace = list(kraj_nazev = "Celá ČR"))
+```
+
+```{r}
+rm(googledata)
+```
+
+```{r nastavit-cutoff-datum}
+
+# datum, které se používá všude níže pro filtrování záznamů
+
+cutoff_date <- as.Date("2020-10-01")
+```
+
+
+```{r nacteni-kraje-cesky}
+
+# načtení a úprava tabulky s českými názvy a kódy krajů
+# přeneseno ze skriptu 02_tabulkova-data-reseni.R
+
+kraje_cesky <- read_csv("data-zdroje/prevodnik-kraju.csv", col_types = cols(.default = "c"))
+kraje_cesky <- kraje_cesky %>%
+  rename(kraj_nazev_cz = kraj_nazev)
+```
+
+
+```{r dlouh-data}
+
+# transformace dat do dlouhé formy pro grafy
+# přeneseno ze skriptu 02_tabulkova-data-reseni.R
+
+gd_dlouhe <- gd %>%
+  pivot_longer(cols = ends_with("baseline"),
+               values_to = "zmena",
+               names_to = "kategorie") %>%
+  mutate(kategorie = str_remove(kategorie, "_percent_change_from_baseline")) %>%
+  mutate(kategorie_cz =
+           recode(kategorie,
+                  retail_and_recreation = "Obchody a rekreace",
+                  grocery_and_pharmacy = "Potraviny a lékárny",
+                  parks = "Parky",
+                  transit_stations = "Stanice veř. dopravy",
+                  workplaces = "Pracoviště",
+                  residential = "Obydlí")) %>% 
+  left_join(kraje_cesky, by = c(kraj_kod_iso = "iso_3166_2_code")) %>% 
+  replace_na(list(kraj_nazev_cz = "Celá ČR"))
+```
+
+
+# Průběh mobility v celé ČR
+
+```{r casova-rada}
+gd_dlouhe_cr <- gd_dlouhe %>%
+  filter(kraj_nazev == "Celá ČR")
+
+ggplot(gd_dlouhe, aes(x = date, y = zmena, colour = kategorie_cz)) +
+  # geom_line(aes(x = date, y = zmena, colour = kategorie_cz)) +
+  facet_wrap(facets = vars(kategorie_cz)) +
+  geom_smooth(method = "loess") +
+  geom_hline(yintercept = 0) +
+  theme(legend.position = "none")
+```
+
+```{r nej-propad}
+
+# najít kategorii, která ke poslednímu dostupnému dni nejvíc poklesla, i o kolik
+
+nejvetsi_propad <- gd_dlouhe_cr %>% 
+  ungroup() %>% 
+  filter(date ==  max(date)) %>% 
+  filter(zmena == min(zmena, na.rm = T))
+```
+
+Celorepublikově ke dni `r nejvetsi_propad$date` nejvíc poklesla mobilita v kategorii lokalit `r nejvetsi_propad$kategorie_cz`, a to o `r abs(nejvetsi_propad$zmena)` % oproti normálnímu stavu.
+
+\newpage
+
+# Přehled poklesu mobility: průměr od `r format(cutoff_date, "%d. %b %Y")`
+
+Průměrné poklesy podle krajů a typu lokality.
+
+```{r prumery}
+
+# přeneseno ze skriptu 02_tabulkova-data-reseni.R
+# výpočet a zobrazní průměrných propadů
+
+prumery <- gd_dlouhe %>%
+  filter(date > cutoff_date) %>%
+  mutate(kraj_nazev = fct_reorder(kraj_nazev, -zmena, mean, na.rm = T)) %>%
+  group_by(kraj_nazev, kategorie_cz, 
+           kraj_nazev_cz, nuts_kod) %>%
+  summarise(prumer = mean(zmena, na.rm = T))
+
+ggplot(prumery, aes(y = kraj_nazev_cz, x = prumer)) +
+  geom_col() +
+  facet_wrap(facets = vars(kategorie_cz)) +
+  labs(title = str_glue("Průměrné poklesy mobility od {format(cutoff_date, '%d. %b %Y')}"),
+       subtitle = "podle krajů a kategorií lokality",
+       caption = "Zdroj: data Google Mobility",
+       x = NULL, y = NULL)
+```
+
+
+```{r obchod}
+
+# převzato ze skriptu 02_tabulkova-data-reseni.R
+
+min_obchod <- gd %>%
+  filter(date > cutoff_date & date != "2020-10-28" & date != "2010-09-28") %>%
+  rename(obchod = retail_and_recreation_percent_change_from_baseline) %>%
+  group_by(kraj_nazev) %>%
+  filter(obchod == min(obchod)) %>%
+  select(date, kraj_nazev, obchod) %>%
+  ungroup() %>%
+  arrange(obchod)
+```
+
+# Pokles mobility: obchod a rekreace
+
+Dny s největším poklesem podle krajů.
+
+Od `r format(cutoff_date, "%d. %b %Y")`, svátky vyjmuty.
+
+```{r tabulka}
+
+# funkce na formátování tabulky
+
+knitr::kable(min_obchod %>% 
+               rename(Datum = date, Kraj = kraj_nazev, `Pokles mobility do obchodů` = obchod))
+```
+
+# Práce z domova
+
+```{r mapa}
+
+# balík zprostředkovávající geografické data od ČÚZK
+
+kraje_geo <- RCzechia::kraje()
+
+
+kraje_geo %>%
+  # propojení geografických dat a našich průměrů
+  left_join(prumery, by = c("KOD_CZNUTS3" = "nuts_kod")) %>%
+  filter(kategorie_cz == "Pracoviště") %>% # zajímají nás jen pracoviště
+  ggplot() +
+  # geom_sf: geometrické zobracení geogradfických dat (balík sf)
+  geom_sf(aes(fill = prumer), colour = "white") +
+  theme_void() +
+  labs(title = "Pokles mobility na pracoviště",
+       subtitle = str_glue("Průměr od {format(cutoff_date, '%d. %b %Y')}"),
+       fill = "Pokles oproti\n normálnímu stavu") +
+  scale_fill_viridis_c()
+```
+
+# Zdroj dat
+
+Data pochází ze [sady Google Mobility pro ČR](https://www.google.com/covid19/mobility/) a byla stažena `r format(Sys.time(), "%d. %b %Y %H:%M")`.
+
+```{r save-data}
+write_xlsx(gd_dlouhe, "data-vystup/kraje_mobilita.xlsx")
+# write_csv2 zapisuje soubory vhodnější pro načtení v českém Excelu
+write_csv2(gd_dlouhe, "data-vystup/kraje_mobilita.csv")
+```
+
