@@ -259,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<script>(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.fitvids=f()}})(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}({1:[function(require,module,exports){var selectors=['iframe[src*="player.vimeo.com"]','iframe[src*="youtube.com"]','iframe[src*="youtube-nocookie.com"]','iframe[src*="kickstarter.com"][src*="video.html"]',"object"];var css=".fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}";module.exports=function(parentSelector,opts){parentSelector=parentSelector||"body";opts=opts||{};if(isObject(parentSelector)){opts=parentSelector;parentSelector="body"}opts.ignore=opts.ignore||"";opts.players=opts.players||"";var containers=queryAll(parentSelector);if(!hasLength(containers))return;if(!document.getElementById("fit-vids-style")){var head=document.head||document.getElementsByTagName("head")[0];head.appendChild(styles())}var custom=toSelectorArray(opts.players);var ignored=toSelectorArray(opts.ignore);var ignoredSelector=ignored.length>0?ignored.join():null;var selector=selectors.concat(custom).join();if(!hasLength(selector)){return}containers.forEach(function(container){var videos=queryAll(container,selector);videos.forEach(function(video){if(ignoredSelector&&video.matches(ignoredSelector)){return}wrap(video)})})};function queryAll(el,selector){if(typeof el==="string"){selector=el;el=document}return Array.prototype.slice.call(el.querySelectorAll(selector))}function toSelectorArray(input){if(typeof input==="string"){return input.split(",").map(trim).filter(hasLength)}else if(isArray(input)){return flatten(input.map(toSelectorArray).filter(hasLength))}return input||[]}function wrap(el){if(/fluid-width-video-wrapper/.test(el.parentNode.className)){return}var widthAttr=parseInt(el.getAttribute("width"),10);var heightAttr=parseInt(el.getAttribute("height"),10);var width=!isNaN(widthAttr)?widthAttr:el.clientWidth;var height=!isNaN(heightAttr)?heightAttr:el.clientHeight;var aspect=height/width;el.removeAttribute("width");el.removeAttribute("height");var wrapper=document.createElement("div");el.parentNode.insertBefore(wrapper,el);wrapper.className="fluid-width-video-wrapper";wrapper.style.paddingTop=aspect*100+"%";wrapper.appendChild(el)}function styles(){var div=document.createElement("div");div.innerHTML='<p>x</p><style id="fit-vids-style">'+css+"</style>";return div.childNodes[1]}function hasLength(input){return input.length>0}function trim(str){return str.replace(/^\s+|\s+$/g,"")}function flatten(input){return[].concat.apply([],input)}function isObject(input){return Object.prototype.toString.call(input)==="[object Object]"}function isArray(input){return Object.prototype.toString.call(input)==="[object Array]"}},{}]},{},[1])(1)});</script>
 <meta name="description" content="Workshop o datové analytice v R, konference EJ NOK říjen 2020" />
 <meta name="generator" content="xaringan and remark.js" />
 <meta name="github-repo" content="petrbouchal/eval2020" />
@@ -663,15 +664,28 @@ summary {
 </div>
 <div id="slides" class="section level2">
 <h2>Slides</h2>
-<p><a href="./slides/">Přímý odkaz na prezentaci</a> (ctr/cmd + klik otevře v nové záložce)</p>
-<iframe src="slides/index.html" width="1000" height="563" frameborder="0">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="slides/index.html" width="1600" height="900" style="border:none;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 <div id="kam-dál-po-workshopu" class="section level2">
 <h2>Kam dál po workshopu</h2>
 <div id="v-přípravě" class="section level3">
 <h3><svg style="height:0.8em;top:.04em;position:relative;fill:#00f;" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm57.1 350.1L224.9 294c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h48c6.6 0 12 5.4 12 12v137.7l63.5 46.2c5.4 3.9 6.5 11.4 2.6 16.8l-28.2 38.8c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg> v přípravě</h3>
 <p>Vraťte se prosím v den workshopu.</p>
+<ul>
+<li><a href="https://r4ds.had.co.nz/introduction.html" class="uri">https://r4ds.had.co.nz/introduction.html</a></li>
+<li><a href="https://stat545.com/install.html" class="uri">https://stat545.com/install.html</a></li>
+<li><a href="https://education.rstudio.com/learn/beginner/" class="uri">https://education.rstudio.com/learn/beginner/</a></li>
+<li><a href="https://rstudio.cloud/learn/primers/" class="uri">https://rstudio.cloud/learn/primers/</a></li>
+<li><a href="https://moderndive.netlify.app/index.html" class="uri">https://moderndive.netlify.app/index.html</a></li>
+<li><a href="https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/" class="uri">https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/</a></li>
+<li><a href="https://rstudio-conf-2020.github.io/r-for-excel/" class="uri">https://rstudio-conf-2020.github.io/r-for-excel/</a></li>
+<li><a href="https://www.learnr4free.com/en/index.html" class="uri">https://www.learnr4free.com/en/index.html</a></li>
+<li><a href="https://learningstatisticswithr.com/" class="uri">https://learningstatisticswithr.com/</a></li>
+<li><a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a></li>
+</ul>
 </div>
 </div>
 </div>

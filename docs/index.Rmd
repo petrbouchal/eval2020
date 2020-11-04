@@ -13,6 +13,9 @@ output:
 
 ```{r, include=F}
 library(fontawesome)
+library(xaringanExtra)
+
+knitr::opts_chunk$set(echo = F)
 
 col_icon <- "#00f"
 ```
@@ -119,12 +122,24 @@ Vraťte se prosím cca týden před workshopem.
 
 ## Slides 
 
-[Přímý odkaz na prezentaci](./slides/) (ctr/cmd + klik otevře v nové záložce)
+```{r}
+embed_xaringan("slides/index.html", border = "none")
+```
 
-<iframe src = "slides/index.html" width = 1000 height = 563 frameborder = "0"></iframe>
 
 ## Kam dál po workshopu
 
 ### `r fa("clock", fill = col_icon)` v přípravě
 
 Vraťte se prosím v den workshopu.
+
+- https://r4ds.had.co.nz/introduction.html
+- https://stat545.com/install.html
+- https://education.rstudio.com/learn/beginner/
+- https://rstudio.cloud/learn/primers/
+- https://moderndive.netlify.app/index.html
+- https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/
+- https://rstudio-conf-2020.github.io/r-for-excel/
+- https://www.learnr4free.com/en/index.html
+- https://learningstatisticswithr.com/
+- https://happygitwithr.com/
