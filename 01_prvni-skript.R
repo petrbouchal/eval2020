@@ -134,7 +134,13 @@ all(c(ano, ne))
 
 # Funkce z balíků ---------------------------------------------------------
 
+# instalace:
+
+install.packages("stringr")
+
 library(stringr)
 
 str_split(z, " ") # parametry podle pořadí
 str_split(string = z, pattern = " ") # parametry podle názvu
+
+tidyverse_packages()
