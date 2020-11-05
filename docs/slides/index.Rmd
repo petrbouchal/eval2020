@@ -793,14 +793,6 @@ otevřete `report.Rmd`
 
 ---
 
-class: inverse, middle, center
-
-.large[
-V přípravě
-]
-
----
-
 # Kam dál
 
 .pull-left[
