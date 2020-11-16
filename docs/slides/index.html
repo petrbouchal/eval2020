@@ -50,20 +50,6 @@ class: bottom, left, inverse, title-slide
 
 
 
-&lt;style type="text/css"&gt;
-.remark-slide-number {
-  display: none;
-}
-
-&lt;/style&gt;
-
-<style>.shareagain-bar {
---shareagain-foreground: rgb(255, 255, 255);
---shareagain-background: rgba(0, 0, 0, 0.5);
---shareagain-facebook: none;
---shareagain-pinterest: none;
---shareagain-reddit: none;
-}</style>
 
 
 
@@ -72,7 +58,6 @@ class: bottom, left, inverse, title-slide
 
 
 
----
 class: left, middle, inverse
 
 # Proč tu jsme: cíle pro dnešek
@@ -257,9 +242,69 @@ class: middle, large
 
 class: center, middle, large
 
-otevřete RStudio ([cloud.rstudio.com](https://cloud.rstudio.com))
+otevřete RStudio ([rstudio.cloud](https://rstudio.cloud))
 
 ---
+class: large
+
+# Resumé: Co je co v R
+
+"Only the data and code are real"
+
+.pull-left[
+
+## Trvalé/opravdické
+
+- kód
+- vstupní data
+
+]
+
+.pull-right[
+
+## Přechodné
+
+- výstupy: dokumenty, grafy, výstupní data
+- objekty v prostředi (environment)
+
+]
+
+viz https://socviz.co/gettingstarted.html#things-to-know-about-r
+
+---
+
+### Data se nemění
+
+Data se ze souboru na disku načtou do prostředí R.
+
+Prostřednictvím kódu pracuji s odrazem dat v prostředí, nikoli přímo s datovým souborem.
+
+Nakonec můžu výsledek zapsat na disk do nového souboru.
+
+### Vše, co dělám s daty, musí být zaznamenáno v kódu
+
+Do vstupních ani výstupních dat nezasahuji ručně.
+
+Do výstupů nezasahuji ručně (pokud, tak až nakonec)
+
+Kód (skript) by měl běžet od začátku do konce
+
+### Co je v prostředí (Environment), je přechodné
+
+Jakmile restartuji R, zmizí to
+
+Pokud chci, aby mi něco zůstalo, musím mít v kódu popsán způsob, jak to vzniklo
+
+---
+
+class: center, middle, large
+
+Pokud se toto naučíte dodržovat, přiblížíte se dobré praxi reprodukovatné analýzy dat
+
+Stejné principy platí i u jiných skriptovacích jazyků na práci s daty (Python, Julia aj.)
+
+---
+
 class: middle, large
 
 1\. R a RStudio: prostředí
@@ -274,7 +319,6 @@ class: middle, large
 class: large, center, middle
 
 otevřete `01_prvni-skript.R`
-
 ---
 
 class: large
@@ -421,7 +465,7 @@ summarise(
 # A tibble: 1 x 1
   min_zmena
       &lt;dbl&gt;
-1       -84
+1       -91
 ```
 ]
 
@@ -438,7 +482,7 @@ gdta %&gt;%
 # A tibble: 1 x 1
   min_zmena
       &lt;dbl&gt;
-1       -84
+1       -91
 ```
 ]
 
@@ -458,7 +502,7 @@ x
 ```
 
 ```
-# A tibble: 2,391 x 2
+# A tibble: 32,343 x 2
    kategorie             zmena
    &lt;chr&gt;                 &lt;dbl&gt;
  1 retail_and_recreation   -56
@@ -471,7 +515,7 @@ x
  8 transit_stations        -55
  9 retail_and_recreation   -67
 10 transit_stations        -58
-# … with 2,381 more rows
+# … with 32,333 more rows
 ```
 ]
 
@@ -484,7 +528,7 @@ gdta %&gt;%
 ```
 
 ```
-# A tibble: 1,639 x 2
+# A tibble: 8,731 x 2
    kategorie             zmena
    &lt;chr&gt;                 &lt;dbl&gt;
  1 retail_and_recreation   -56
@@ -497,7 +541,7 @@ gdta %&gt;%
  8 transit_stations        -55
  9 retail_and_recreation   -67
 10 transit_stations        -58
-# … with 1,629 more rows
+# … with 8,721 more rows
 ```
 ]
 
@@ -522,7 +566,7 @@ count: false
 .panel2-tidyverse-priklad-auto[
 
 ```
-# A tibble: 23,310 x 5
+# A tibble: 141,936 x 5
    sub_region_1 kategorie             zmena date       country_region
    &lt;chr&gt;        &lt;chr&gt;                 &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;         
  1 &lt;NA&gt;         retail_and_recreation    13 2020-02-15 Czechia       
@@ -535,7 +579,7 @@ count: false
  8 &lt;NA&gt;         grocery_and_pharmacy      8 2020-02-16 Czechia       
  9 &lt;NA&gt;         parks                    28 2020-02-16 Czechia       
 10 &lt;NA&gt;         transit_stations          9 2020-02-16 Czechia       
-# … with 23,300 more rows
+# … with 141,926 more rows
 ```
 ]
 
@@ -554,7 +598,7 @@ gdta %&gt;%
 .panel2-tidyverse-priklad-auto[
 
 ```
-# A tibble: 23,310 x 4
+# A tibble: 141,936 x 4
    sub_region_1 kategorie             zmena date      
    &lt;chr&gt;        &lt;chr&gt;                 &lt;dbl&gt; &lt;date&gt;    
  1 &lt;NA&gt;         retail_and_recreation    13 2020-02-15
@@ -567,7 +611,7 @@ gdta %&gt;%
  8 &lt;NA&gt;         grocery_and_pharmacy      8 2020-02-16
  9 &lt;NA&gt;         parks                    28 2020-02-16
 10 &lt;NA&gt;         transit_stations          9 2020-02-16
-# … with 23,300 more rows
+# … with 141,926 more rows
 ```
 ]
 
@@ -587,7 +631,7 @@ gdta %&gt;%
 .panel2-tidyverse-priklad-auto[
 
 ```
-# A tibble: 23,310 x 4
+# A tibble: 141,936 x 4
    kraj_nazev kategorie             zmena date      
    &lt;chr&gt;      &lt;chr&gt;                 &lt;dbl&gt; &lt;date&gt;    
  1 &lt;NA&gt;       retail_and_recreation    13 2020-02-15
@@ -600,7 +644,7 @@ gdta %&gt;%
  8 &lt;NA&gt;       grocery_and_pharmacy      8 2020-02-16
  9 &lt;NA&gt;       parks                    28 2020-02-16
 10 &lt;NA&gt;       transit_stations          9 2020-02-16
-# … with 23,300 more rows
+# … with 141,926 more rows
 ```
 ]
 
@@ -621,7 +665,7 @@ gdta %&gt;%
 .panel2-tidyverse-priklad-auto[
 
 ```
-# A tibble: 2,610 x 4
+# A tibble: 18,018 x 4
    kraj_nazev kategorie             zmena date      
    &lt;chr&gt;      &lt;chr&gt;                 &lt;dbl&gt; &lt;date&gt;    
  1 &lt;NA&gt;       retail_and_recreation   -10 2020-10-02
@@ -634,7 +678,7 @@ gdta %&gt;%
  8 &lt;NA&gt;       grocery_and_pharmacy      8 2020-10-03
  9 &lt;NA&gt;       parks                    66 2020-10-03
 10 &lt;NA&gt;       transit_stations          1 2020-10-03
-# … with 2,600 more rows
+# … with 18,008 more rows
 ```
 ]
 
@@ -656,7 +700,7 @@ gdta %&gt;%
 .panel2-tidyverse-priklad-auto[
 
 ```
-# A tibble: 2,610 x 5
+# A tibble: 18,018 x 5
    kraj_nazev kategorie             zmena date       zmena_dec
    &lt;chr&gt;      &lt;chr&gt;                 &lt;dbl&gt; &lt;date&gt;         &lt;dbl&gt;
  1 &lt;NA&gt;       retail_and_recreation   -10 2020-10-02     -0.1 
@@ -669,7 +713,7 @@ gdta %&gt;%
  8 &lt;NA&gt;       grocery_and_pharmacy      8 2020-10-03      0.08
  9 &lt;NA&gt;       parks                    66 2020-10-03      0.66
 10 &lt;NA&gt;       transit_stations          1 2020-10-03      0.01
-# … with 2,600 more rows
+# … with 18,008 more rows
 ```
 ]
 
@@ -692,7 +736,7 @@ gdta %&gt;%
 .panel2-tidyverse-priklad-auto[
 
 ```
-# A tibble: 2,610 x 4
+# A tibble: 18,018 x 4
    kraj_nazev kategorie             date       zmena_dec
    &lt;chr&gt;      &lt;chr&gt;                 &lt;date&gt;         &lt;dbl&gt;
  1 &lt;NA&gt;       retail_and_recreation 2020-10-02     -0.1 
@@ -705,7 +749,7 @@ gdta %&gt;%
  8 &lt;NA&gt;       grocery_and_pharmacy  2020-10-03      0.08
  9 &lt;NA&gt;       parks                 2020-10-03      0.66
 10 &lt;NA&gt;       transit_stations      2020-10-03      0.01
-# … with 2,600 more rows
+# … with 18,008 more rows
 ```
 ]
 
@@ -729,7 +773,7 @@ gdta %&gt;%
 .panel2-tidyverse-priklad-auto[
 
 ```
-# A tibble: 2,610 x 4
+# A tibble: 18,018 x 4
 # Groups:   kraj_nazev, kategorie [90]
    kraj_nazev kategorie             date       zmena_dec
    &lt;chr&gt;      &lt;chr&gt;                 &lt;date&gt;         &lt;dbl&gt;
@@ -743,7 +787,7 @@ gdta %&gt;%
  8 &lt;NA&gt;       grocery_and_pharmacy  2020-10-03      0.08
  9 &lt;NA&gt;       parks                 2020-10-03      0.66
 10 &lt;NA&gt;       transit_stations      2020-10-03      0.01
-# … with 2,600 more rows
+# … with 18,008 more rows
 ```
 ]
 
@@ -769,21 +813,21 @@ gdta %&gt;%
 .panel2-tidyverse-priklad-auto[
 
 ```
-# A tibble: 2,610 x 6
+# A tibble: 18,018 x 6
 # Groups:   kraj_nazev, kategorie [90]
    kraj_nazev kategorie             date       zmena_dec zmena_min zmena_max
    &lt;chr&gt;      &lt;chr&gt;                 &lt;date&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
- 1 &lt;NA&gt;       retail_and_recreation 2020-10-02     -0.1      -0.76     -0.03
- 2 &lt;NA&gt;       grocery_and_pharmacy  2020-10-02      0.13     -0.79      0.27
+ 1 &lt;NA&gt;       retail_and_recreation 2020-10-02     -0.1      -0.79     -0.03
+ 2 &lt;NA&gt;       grocery_and_pharmacy  2020-10-02      0.13     -0.85      0.27
  3 &lt;NA&gt;       parks                 2020-10-02      0.26     -0.36      0.66
  4 &lt;NA&gt;       transit_stations      2020-10-02     -0.02     -0.56      0.01
  5 &lt;NA&gt;       workplaces            2020-10-02     -0.07     -0.74      0.05
  6 &lt;NA&gt;       residential           2020-10-02      0        -0.02      0.26
- 7 &lt;NA&gt;       retail_and_recreation 2020-10-03     -0.1      -0.76     -0.03
- 8 &lt;NA&gt;       grocery_and_pharmacy  2020-10-03      0.08     -0.79      0.27
+ 7 &lt;NA&gt;       retail_and_recreation 2020-10-03     -0.1      -0.79     -0.03
+ 8 &lt;NA&gt;       grocery_and_pharmacy  2020-10-03      0.08     -0.85      0.27
  9 &lt;NA&gt;       parks                 2020-10-03      0.66     -0.36      0.66
 10 &lt;NA&gt;       transit_stations      2020-10-03      0.01     -0.56      0.01
-# … with 2,600 more rows
+# … with 18,008 more rows
 ```
 ]
 
@@ -814,16 +858,16 @@ gdta %&gt;%
 # Groups:   kraj_nazev [15]
    kraj_nazev              kategorie             zmena_p
    &lt;chr&gt;                   &lt;chr&gt;                   &lt;dbl&gt;
- 1 Central Bohemian Region grocery_and_pharmacy   0.0790
- 2 Central Bohemian Region parks                  0.391 
- 3 Central Bohemian Region residential            0.0938
- 4 Central Bohemian Region retail_and_recreation -0.204 
- 5 Central Bohemian Region transit_stations      -0.0314
- 6 Central Bohemian Region workplaces            -0.192 
- 7 Hradec Králové Region   grocery_and_pharmacy   0.0121
- 8 Hradec Králové Region   parks                  0.221 
- 9 Hradec Králové Region   residential            0.0821
-10 Hradec Králové Region   retail_and_recreation -0.336 
+ 1 Central Bohemian Region grocery_and_pharmacy   0.0648
+ 2 Central Bohemian Region parks                  0.264 
+ 3 Central Bohemian Region residential            0.0976
+ 4 Central Bohemian Region retail_and_recreation -0.232 
+ 5 Central Bohemian Region transit_stations      -0.0174
+ 6 Central Bohemian Region workplaces            -0.183 
+ 7 Hradec Králové Region   grocery_and_pharmacy   0.0126
+ 8 Hradec Králové Region   parks                  0.197 
+ 9 Hradec Králové Region   residential            0.0872
+10 Hradec Králové Region   retail_and_recreation -0.325 
 # … with 80 more rows
 ```
 ]
@@ -855,16 +899,16 @@ gdta %&gt;%
 # A tibble: 90 x 3
    kraj_nazev              kategorie             zmena_p
    &lt;chr&gt;                   &lt;chr&gt;                   &lt;dbl&gt;
- 1 Central Bohemian Region grocery_and_pharmacy   0.0790
- 2 Central Bohemian Region parks                  0.391 
- 3 Central Bohemian Region residential            0.0938
- 4 Central Bohemian Region retail_and_recreation -0.204 
- 5 Central Bohemian Region transit_stations      -0.0314
- 6 Central Bohemian Region workplaces            -0.192 
- 7 Hradec Králové Region   grocery_and_pharmacy   0.0121
- 8 Hradec Králové Region   parks                  0.221 
- 9 Hradec Králové Region   residential            0.0821
-10 Hradec Králové Region   retail_and_recreation -0.336 
+ 1 Central Bohemian Region grocery_and_pharmacy   0.0648
+ 2 Central Bohemian Region parks                  0.264 
+ 3 Central Bohemian Region residential            0.0976
+ 4 Central Bohemian Region retail_and_recreation -0.232 
+ 5 Central Bohemian Region transit_stations      -0.0174
+ 6 Central Bohemian Region workplaces            -0.183 
+ 7 Hradec Králové Region   grocery_and_pharmacy   0.0126
+ 8 Hradec Králové Region   parks                  0.197 
+ 9 Hradec Králové Region   residential            0.0872
+10 Hradec Králové Region   retail_and_recreation -0.325 
 # … with 80 more rows
 ```
 ]
@@ -895,18 +939,18 @@ gdta %&gt;%
 
 ```
 # A tibble: 90 x 3
-   kraj_nazev               kategorie            zmena_p
-   &lt;chr&gt;                    &lt;chr&gt;                  &lt;dbl&gt;
- 1 Prague                   grocery_and_pharmacy -0.01  
- 2 Zlín Region              grocery_and_pharmacy -0.0100
- 3 Hradec Králové Region    grocery_and_pharmacy  0.0121
- 4 South Bohemian Region    grocery_and_pharmacy  0.0207
- 5 Plzeň Region             grocery_and_pharmacy  0.0272
- 6 &lt;NA&gt;                     grocery_and_pharmacy  0.0383
- 7 Karlovy Vary Region      grocery_and_pharmacy  0.0386
- 8 Moravian-Silesian Region grocery_and_pharmacy  0.0428
- 9 Liberec Region           grocery_and_pharmacy  0.0483
-10 Pardubice Region         grocery_and_pharmacy  0.0500
+   kraj_nazev               kategorie             zmena_p
+   &lt;chr&gt;                    &lt;chr&gt;                   &lt;dbl&gt;
+ 1 Prague                   grocery_and_pharmacy -0.0333 
+ 2 Zlín Region              grocery_and_pharmacy -0.0203 
+ 3 Karlovy Vary Region      grocery_and_pharmacy  0.00318
+ 4 Hradec Králové Region    grocery_and_pharmacy  0.0126 
+ 5 &lt;NA&gt;                     grocery_and_pharmacy  0.0136 
+ 6 Moravian-Silesian Region grocery_and_pharmacy  0.0241 
+ 7 South Bohemian Region    grocery_and_pharmacy  0.0289 
+ 8 Liberec Region           grocery_and_pharmacy  0.0359 
+ 9 Olomouc Region           grocery_and_pharmacy  0.0388 
+10 Plzeň Region             grocery_and_pharmacy  0.0455 
 # … with 80 more rows
 ```
 ]
@@ -940,16 +984,16 @@ gdta %&gt;%
 # A tibble: 90 x 3
    kraj_nazev               kategorie            zmena_p
    &lt;chr&gt;                    &lt;chr&gt;                  &lt;dbl&gt;
- 1 Vysočina Region          grocery_and_pharmacy  0.0817
- 2 Central Bohemian Region  grocery_and_pharmacy  0.0790
- 3 South Moravian Region    grocery_and_pharmacy  0.0752
- 4 Ústí nad Labem Region    grocery_and_pharmacy  0.0693
- 5 Olomouc Region           grocery_and_pharmacy  0.0572
- 6 Pardubice Region         grocery_and_pharmacy  0.0500
- 7 Liberec Region           grocery_and_pharmacy  0.0483
- 8 Moravian-Silesian Region grocery_and_pharmacy  0.0428
- 9 Karlovy Vary Region      grocery_and_pharmacy  0.0386
-10 &lt;NA&gt;                     grocery_and_pharmacy  0.0383
+ 1 South Moravian Region    grocery_and_pharmacy  0.0766
+ 2 Ústí nad Labem Region    grocery_and_pharmacy  0.0682
+ 3 Central Bohemian Region  grocery_and_pharmacy  0.0648
+ 4 Vysočina Region          grocery_and_pharmacy  0.0616
+ 5 Pardubice Region         grocery_and_pharmacy  0.0515
+ 6 Plzeň Region             grocery_and_pharmacy  0.0455
+ 7 Olomouc Region           grocery_and_pharmacy  0.0388
+ 8 Liberec Region           grocery_and_pharmacy  0.0359
+ 9 South Bohemian Region    grocery_and_pharmacy  0.0289
+10 Moravian-Silesian Region grocery_and_pharmacy  0.0241
 # … with 80 more rows
 ```
 ]
@@ -984,21 +1028,21 @@ gdta %&gt;%
 # A tibble: 15 x 3
    kraj_nazev               kategorie  zmena_p
    &lt;chr&gt;                    &lt;chr&gt;        &lt;dbl&gt;
- 1 Karlovy Vary Region      workplaces  -0.158
- 2 Pardubice Region         workplaces  -0.159
- 3 Olomouc Region           workplaces  -0.165
- 4 Ústí nad Labem Region    workplaces  -0.165
- 5 Liberec Region           workplaces  -0.174
- 6 Vysočina Region          workplaces  -0.176
- 7 Plzeň Region             workplaces  -0.176
- 8 South Bohemian Region    workplaces  -0.176
- 9 Hradec Králové Region    workplaces  -0.183
-10 Zlín Region              workplaces  -0.185
-11 Moravian-Silesian Region workplaces  -0.188
-12 Central Bohemian Region  workplaces  -0.192
-13 &lt;NA&gt;                     workplaces  -0.208
-14 South Moravian Region    workplaces  -0.220
-15 Prague                   workplaces  -0.343
+ 1 Karlovy Vary Region      workplaces  -0.150
+ 2 Ústí nad Labem Region    workplaces  -0.162
+ 3 Pardubice Region         workplaces  -0.165
+ 4 Olomouc Region           workplaces  -0.166
+ 5 Plzeň Region             workplaces  -0.170
+ 6 Liberec Region           workplaces  -0.175
+ 7 South Bohemian Region    workplaces  -0.177
+ 8 Vysočina Region          workplaces  -0.182
+ 9 Zlín Region              workplaces  -0.183
+10 Central Bohemian Region  workplaces  -0.183
+11 Moravian-Silesian Region workplaces  -0.186
+12 Hradec Králové Region    workplaces  -0.188
+13 South Moravian Region    workplaces  -0.208
+14 &lt;NA&gt;                     workplaces  -0.214
+15 Prague                   workplaces  -0.348
 ```
 ]
 
@@ -1033,21 +1077,21 @@ gdta %&gt;%
 # A tibble: 15 x 3
    kraj_nazev               kategorie  zmena_p
    &lt;chr&gt;                    &lt;chr&gt;        &lt;dbl&gt;
- 1 Karlovy Vary Region      workplaces  -0.158
- 2 Pardubice Region         workplaces  -0.159
- 3 Olomouc Region           workplaces  -0.165
- 4 Ústí nad Labem Region    workplaces  -0.165
- 5 Liberec Region           workplaces  -0.174
- 6 Vysočina Region          workplaces  -0.176
- 7 Plzeň Region             workplaces  -0.176
- 8 South Bohemian Region    workplaces  -0.176
- 9 Hradec Králové Region    workplaces  -0.183
-10 Zlín Region              workplaces  -0.185
-11 Moravian-Silesian Region workplaces  -0.188
-12 Central Bohemian Region  workplaces  -0.192
-13 Celá ČR                  workplaces  -0.208
-14 South Moravian Region    workplaces  -0.220
-15 Prague                   workplaces  -0.343
+ 1 Karlovy Vary Region      workplaces  -0.150
+ 2 Ústí nad Labem Region    workplaces  -0.162
+ 3 Pardubice Region         workplaces  -0.165
+ 4 Olomouc Region           workplaces  -0.166
+ 5 Plzeň Region             workplaces  -0.170
+ 6 Liberec Region           workplaces  -0.175
+ 7 South Bohemian Region    workplaces  -0.177
+ 8 Vysočina Region          workplaces  -0.182
+ 9 Zlín Region              workplaces  -0.183
+10 Central Bohemian Region  workplaces  -0.183
+11 Moravian-Silesian Region workplaces  -0.186
+12 Hradec Králové Region    workplaces  -0.188
+13 South Moravian Region    workplaces  -0.208
+14 Celá ČR                  workplaces  -0.214
+15 Prague                   workplaces  -0.348
 ```
 ]
 
@@ -1082,7 +1126,7 @@ gdta %&gt;%
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#pnppakemkt .gt_table {
+#zkdlvsqnnd .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1107,7 +1151,7 @@ gdta %&gt;%
   border-left-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_heading {
+#zkdlvsqnnd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1119,7 +1163,7 @@ gdta %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_title {
+#zkdlvsqnnd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1129,7 +1173,7 @@ gdta %&gt;%
   border-bottom-width: 0;
 }
 
-#pnppakemkt .gt_subtitle {
+#zkdlvsqnnd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1139,13 +1183,13 @@ gdta %&gt;%
   border-top-width: 0;
 }
 
-#pnppakemkt .gt_bottom_border {
+#zkdlvsqnnd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_col_headings {
+#zkdlvsqnnd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1160,7 +1204,7 @@ gdta %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_col_heading {
+#zkdlvsqnnd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1180,7 +1224,7 @@ gdta %&gt;%
   overflow-x: hidden;
 }
 
-#pnppakemkt .gt_column_spanner_outer {
+#zkdlvsqnnd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1192,15 +1236,15 @@ gdta %&gt;%
   padding-right: 4px;
 }
 
-#pnppakemkt .gt_column_spanner_outer:first-child {
+#zkdlvsqnnd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pnppakemkt .gt_column_spanner_outer:last-child {
+#zkdlvsqnnd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pnppakemkt .gt_column_spanner {
+#zkdlvsqnnd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1212,7 +1256,7 @@ gdta %&gt;%
   width: 100%;
 }
 
-#pnppakemkt .gt_group_heading {
+#zkdlvsqnnd .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1234,7 +1278,7 @@ gdta %&gt;%
   vertical-align: middle;
 }
 
-#pnppakemkt .gt_empty_group_heading {
+#zkdlvsqnnd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1249,15 +1293,15 @@ gdta %&gt;%
   vertical-align: middle;
 }
 
-#pnppakemkt .gt_from_md > :first-child {
+#zkdlvsqnnd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pnppakemkt .gt_from_md > :last-child {
+#zkdlvsqnnd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pnppakemkt .gt_row {
+#zkdlvsqnnd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1276,7 +1320,7 @@ gdta %&gt;%
   overflow-x: hidden;
 }
 
-#pnppakemkt .gt_stub {
+#zkdlvsqnnd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1288,7 +1332,7 @@ gdta %&gt;%
   padding-left: 12px;
 }
 
-#pnppakemkt .gt_summary_row {
+#zkdlvsqnnd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1298,7 +1342,7 @@ gdta %&gt;%
   padding-right: 5px;
 }
 
-#pnppakemkt .gt_first_summary_row {
+#zkdlvsqnnd .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1308,7 +1352,7 @@ gdta %&gt;%
   border-top-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_grand_summary_row {
+#zkdlvsqnnd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1318,7 +1362,7 @@ gdta %&gt;%
   padding-right: 5px;
 }
 
-#pnppakemkt .gt_first_grand_summary_row {
+#zkdlvsqnnd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1328,11 +1372,11 @@ gdta %&gt;%
   border-top-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_striped {
+#zkdlvsqnnd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pnppakemkt .gt_table_body {
+#zkdlvsqnnd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1341,7 +1385,7 @@ gdta %&gt;%
   border-bottom-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_footnotes {
+#zkdlvsqnnd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1355,13 +1399,13 @@ gdta %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_footnote {
+#zkdlvsqnnd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#pnppakemkt .gt_sourcenotes {
+#zkdlvsqnnd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1375,46 +1419,46 @@ gdta %&gt;%
   border-right-color: #D3D3D3;
 }
 
-#pnppakemkt .gt_sourcenote {
+#zkdlvsqnnd .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#pnppakemkt .gt_left {
+#zkdlvsqnnd .gt_left {
   text-align: left;
 }
 
-#pnppakemkt .gt_center {
+#zkdlvsqnnd .gt_center {
   text-align: center;
 }
 
-#pnppakemkt .gt_right {
+#zkdlvsqnnd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pnppakemkt .gt_font_normal {
+#zkdlvsqnnd .gt_font_normal {
   font-weight: normal;
 }
 
-#pnppakemkt .gt_font_bold {
+#zkdlvsqnnd .gt_font_bold {
   font-weight: bold;
 }
 
-#pnppakemkt .gt_font_italic {
+#zkdlvsqnnd .gt_font_italic {
   font-style: italic;
 }
 
-#pnppakemkt .gt_super {
+#zkdlvsqnnd .gt_super {
   font-size: 65%;
 }
 
-#pnppakemkt .gt_footnote_marks {
+#zkdlvsqnnd .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="pnppakemkt" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="zkdlvsqnnd" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -1427,77 +1471,77 @@ gdta %&gt;%
     <tr>
       <td class="gt_row gt_left">Karlovy Vary Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1575862</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_left">Pardubice Region</td>
-      <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1589655</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_left">Olomouc Region</td>
-      <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1648276</td>
+      <td class="gt_row gt_right">-0.1502273</td>
     </tr>
     <tr>
       <td class="gt_row gt_left">Ústí nad Labem Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1651724</td>
+      <td class="gt_row gt_right">-0.1619697</td>
     </tr>
     <tr>
-      <td class="gt_row gt_left">Liberec Region</td>
+      <td class="gt_row gt_left">Pardubice Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1741379</td>
+      <td class="gt_row gt_right">-0.1649091</td>
     </tr>
     <tr>
-      <td class="gt_row gt_left">Vysočina Region</td>
+      <td class="gt_row gt_left">Olomouc Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1755172</td>
+      <td class="gt_row gt_right">-0.1659091</td>
     </tr>
     <tr>
       <td class="gt_row gt_left">Plzeň Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1758621</td>
+      <td class="gt_row gt_right">-0.1702273</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">Liberec Region</td>
+      <td class="gt_row gt_left">workplaces</td>
+      <td class="gt_row gt_right">-0.1752121</td>
     </tr>
     <tr>
       <td class="gt_row gt_left">South Bohemian Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1762069</td>
+      <td class="gt_row gt_right">-0.1771212</td>
     </tr>
     <tr>
-      <td class="gt_row gt_left">Hradec Králové Region</td>
+      <td class="gt_row gt_left">Vysočina Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1827586</td>
+      <td class="gt_row gt_right">-0.1817677</td>
     </tr>
     <tr>
       <td class="gt_row gt_left">Zlín Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1851724</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_left">Moravian-Silesian Region</td>
-      <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1879310</td>
+      <td class="gt_row gt_right">-0.1826061</td>
     </tr>
     <tr>
       <td class="gt_row gt_left">Central Bohemian Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.1917241</td>
+      <td class="gt_row gt_right">-0.1828671</td>
     </tr>
     <tr>
-      <td class="gt_row gt_left">Celá ČR</td>
+      <td class="gt_row gt_left">Moravian-Silesian Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.2079310</td>
+      <td class="gt_row gt_right">-0.1859307</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">Hradec Králové Region</td>
+      <td class="gt_row gt_left">workplaces</td>
+      <td class="gt_row gt_right">-0.1875253</td>
     </tr>
     <tr>
       <td class="gt_row gt_left">South Moravian Region</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.2196552</td>
+      <td class="gt_row gt_right">-0.2076894</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">Celá ČR</td>
+      <td class="gt_row gt_left">workplaces</td>
+      <td class="gt_row gt_right">-0.2136364</td>
     </tr>
     <tr>
       <td class="gt_row gt_left">Prague</td>
       <td class="gt_row gt_left">workplaces</td>
-      <td class="gt_row gt_right">-0.3431034</td>
+      <td class="gt_row gt_right">-0.3481818</td>
     </tr>
   </tbody>
   
@@ -1717,7 +1761,7 @@ library(ggplot2)
 ggplot()
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-13-1.png" width="504" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-12-1.png" width="504" /&gt;
 
 ---
 
@@ -1727,7 +1771,7 @@ ggplot(data = gdta_rij, mapping = aes(x = date, y = zmena)) +
   geom_line()
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-14-1.png" width="504" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-13-1.png" width="504" /&gt;
 
 NB vrstvy se přidávají znamínkem `+`
 
@@ -1739,7 +1783,7 @@ ggplot(data = gdta_rij, mapping = aes(x = date, y = zmena)) +
 * geom_line(aes(colour = kategorie))
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-15-1.png" width="504" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-14-1.png" width="504" /&gt;
 
 ---
 
@@ -1753,7 +1797,7 @@ ggplot(data = gdta_rij,
 * geom_line(aes(colour = kategorie))
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-16-1.png" width="504" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-15-1.png" width="504" /&gt;
 ]
 .pull-right[
 
@@ -1764,7 +1808,7 @@ ggplot(data = gdta_rij,
             aes(group = kategorie))
 ```
 
-&lt;img src="index_files/figure-html/unnamed-chunk-17-1.png" width="504" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-16-1.png" width="504" /&gt;
 ]
 
 ---
@@ -1979,7 +2023,7 @@ Chunks můžete spouštět samostatně v průběhu analýzy (`Ctrl/Cmd+Shift+Ent
 
 Na konci se pak celý dokument zprocesuje čudlíkem "Knit". Výsledkem může být *HTML stránka*, *word*ový dokument nebo *PDF*.
 
-
+.small[viz https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown]
 ---
 
 class: large
@@ -2014,7 +2058,7 @@ Odkaz: `&lt;https://google.com&gt;`
 
 a `[odkaz s textem](https://google.com)`
 
-Kód přímo v textu: dnes je `` 2020-11-05 ``
+Kód přímo v textu: dnes je `` 2020-11-16 ``
 
 ]
 
@@ -2030,7 +2074,7 @@ Odkaz: &lt;https://google.com&gt;
 
 a [odkaz s textem](https://google.com)
 
-Kód přímo v textu: dnes je 2020-11-05
+Kód přímo v textu: dnes je 2020-11-16
 
 ]
 
@@ -2060,7 +2104,7 @@ otevřete `report.Rmd`
 
 - Pokročilé úpravy dat (`stringr`, `dplyr::across()`)
 - Faktory (balík `forcats`)
-- Přístup do databází
+- Přístup do databází, viz [db.rstudio.com](https://db.rstudio.com)
 - Vizuální styly na míru (`ggplot2::theme()`)
 - Tabulky (např. balík `gt`)
 
@@ -2074,7 +2118,7 @@ viz [tento dokument](https://petrbouchal.xyz/slides/pssau2020-07/)
 
 # Kam dál: online knihy
 
-
+viz část ["Kam dál po workshopu" na webu kurzu](https://petrbouchal.xyz/eval2020)
 
 ---
 class: middle, center, inverse
@@ -2124,6 +2168,7 @@ pbouchal@gmail.com
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "ratio": "16:9",
+"slideNumberFormat": "",
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false

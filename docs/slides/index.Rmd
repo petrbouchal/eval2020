@@ -14,6 +14,7 @@ output:
     seal: true 
     nature:
       ratio: 16:9
+      slideNumberFormat: ""
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -45,15 +46,7 @@ update_geom_defaults("rect", list(fill = "blue"))
 options(tibble.print_min = 20)
 ```
 
-
-```{css}
-.remark-slide-number {
-  display: none;
-}
-
-```
-
-```{r}
+```{r, include=FALSE}
 xaringanExtra::use_xaringan_extra("share_again")
 
 xaringanExtra::style_share_again(
@@ -83,7 +76,7 @@ sysfonts::font_add_google("IBM Plex Sans", "Roboto")
 sysfonts::font_add_google("IBM Plex Sans Condensed", "Roboto Condensed")
 ```
 
-```{r meta, echo=F}
+```{r meta, include=FALSE}
 library(metathis)
 meta() %>%
   meta_general(
@@ -105,7 +98,6 @@ meta() %>%
   write_meta("meta.html")
 ```
 
----
 class: left, middle, inverse
 
 # Proč tu jsme: cíle pro dnešek
@@ -290,9 +282,69 @@ class: middle, large
 
 class: center, middle, large
 
-otevřete RStudio ([cloud.rstudio.com](https://cloud.rstudio.com))
+otevřete RStudio ([rstudio.cloud](https://rstudio.cloud))
 
 ---
+class: large
+
+# Resumé: Co je co v R
+
+"Only the data and code are real"
+
+.pull-left[
+
+## Trvalé/opravdické
+
+- kód
+- vstupní data
+
+]
+
+.pull-right[
+
+## Přechodné
+
+- výstupy: dokumenty, grafy, výstupní data
+- objekty v prostředi (environment)
+
+]
+
+viz https://socviz.co/gettingstarted.html#things-to-know-about-r
+
+---
+
+### Data se nemění
+
+Data se ze souboru na disku načtou do prostředí R.
+
+Prostřednictvím kódu pracuji s odrazem dat v prostředí, nikoli přímo s datovým souborem.
+
+Nakonec můžu výsledek zapsat na disk do nového souboru.
+
+### Vše, co dělám s daty, musí být zaznamenáno v kódu
+
+Do vstupních ani výstupních dat nezasahuji ručně.
+
+Do výstupů nezasahuji ručně (pokud, tak až nakonec)
+
+Kód (skript) by měl běžet od začátku do konce
+
+### Co je v prostředí (Environment), je přechodné
+
+Jakmile restartuji R, zmizí to
+
+Pokud chci, aby mi něco zůstalo, musím mít v kódu popsán způsob, jak to vzniklo
+
+---
+
+class: center, middle, large
+
+Pokud se toto naučíte dodržovat, přiblížíte se dobré praxi reprodukovatné analýzy dat
+
+Stejné principy platí i u jiných skriptovacích jazyků na práci s daty (Python, Julia aj.)
+
+---
+
 class: middle, large
 
 1\. R a RStudio: prostředí
@@ -307,7 +359,6 @@ class: middle, large
 class: large, center, middle
 
 otevřete `01_prvni-skript.R`
-
 ---
 
 class: large
@@ -728,7 +779,7 @@ Chunks můžete spouštět samostatně v průběhu analýzy (`Ctrl/Cmd+Shift+Ent
 
 Na konci se pak celý dokument zprocesuje čudlíkem "Knit". Výsledkem může být *HTML stránka*, *word*ový dokument nebo *PDF*.
 
-
+.small[viz https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown]
 ---
 
 class: large
@@ -810,7 +861,7 @@ otevřete `report.Rmd`
 
 - Pokročilé úpravy dat (`stringr`, `dplyr::across()`)
 - Faktory (balík `forcats`)
-- Přístup do databází
+- Přístup do databází, viz [db.rstudio.com](https://db.rstudio.com)
 - Vizuální styly na míru (`ggplot2::theme()`)
 - Tabulky (např. balík `gt`)
 
@@ -824,7 +875,7 @@ viz [tento dokument](https://petrbouchal.xyz/slides/pssau2020-07/)
 
 # Kam dál: online knihy
 
-
+viz část ["Kam dál po workshopu" na webu kurzu](https://petrbouchal.xyz/eval2020)
 
 ---
 class: middle, center, inverse
