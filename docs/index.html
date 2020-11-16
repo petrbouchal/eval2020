@@ -224,6 +224,7 @@ color: #d14;
 a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
 a.anchor-section::before {content: '#';}
 .hasAnchor:hover a.anchor-section {visibility: visible;}
+ul > li > .anchor-section {display: none;}
 </style>
 <script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
 document.addEventListener('DOMContentLoaded', function() {
@@ -248,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add anchors
   h.forEach(function(x) {
     const id = x.id || section_id(x.parentElement);
-    if (id === '') {
+    if (id === '' || x.matches(':empty')) {
       return null;
     }
     let anchor = document.createElement('a');
@@ -365,6 +366,19 @@ src: local('IBM Plex Sans Bold'), local('IBMPlexSans-Bold'), url(data:font/ttf;b
 body {font-family: "IBM Plex Sans", "Helvetica", Helvetica, sans-serif, sans}
 a {color: #00f}
 a:hover {color: #00f}
+pre, code {
+font-family: "IBM Plex Mono", Monospace;
+}
+kbd {
+display: inline-block;
+border: 1px solid #ccc;
+font-family: "IBM Plex Mono", Monospace;
+border-radius: 4px;
+color: rgb(51, 51, 51);
+padding: 0.1em 0.1em;
+margin: 0;
+background-color: #f7f7f7;
+}
 .tocify {
 border: 0px;
 border-radius: 0px;
@@ -475,6 +489,17 @@ color: #00f;
 }
 .nav-tabs>li>a:hover {
 border-color:#eee #eee #ddd
+}
+kbd {
+display: inline-block;
+border: 1px solid rgb(51, 51, 51);
+font-family: IBM Plex Mono, Monospace;
+color: rgb(51, 51, 51);
+border-radius: 4px;
+box-shadow: 0;
+padding: 0 0.2em 0 0.2em;
+margin: 0 0.1em 0 0.1em;
+background-color: #f7f7f7;
 }
 </style>
 
@@ -663,25 +688,34 @@ summary {
 <h4>Znaky</h4>
 <p>Win / Mac</p>
 <ul>
-<li>AltGr+35 / Alt+3: #</li>
-<li>AltGr+38 : &amp;</li>
+<li><kbd>AltGr</kbd>+35 / <kbd>Alt</kbd>+<kbd>3</kbd> <kbd>#</kbd></li>
+<li>AltGr+38 / Alt+7: &amp;</li>
 <li>AltGr+; (středník) nebo Alt+96 / : Alt + 1 na české Mac klávesnici: <code>`</code> (backtick)</li>
 <li>AltGr+, (čárka) nebo AltGr+60/ Alt+?/&lt; : <code>&lt;</code></li>
 <li>AltGr+, (tečka) nebo AltGr+62 / Alt+./&lt; : <code>&gt;</code></li>
+</ul>
+<p>Win: (na Macu buď anglická klávesnice, nebo na české Alt+klávesa, kde je znak vidět)</p>
+<ul>
 <li>AltGr+94: stříška <code>^</code></li>
+<li>AltGr+123: <code>{</code> Otevřená složená závorka</li>
 <li>AltGr+124: <code>|</code> Svislá čára</li>
 <li>AltGr+125: <code>}</code> Zavřená složená závorka</li>
 <li>AltGr+126: <code>~</code> Vlnovka</li>
+<li>AltGr+91: <code>[</code> Otevřená hranatá závorka</li>
+<li>AltGr+92: <code>\</code> Obracené lomítko</li>
+<li>AltGr+93: <code>]</code> Zavřená hranatá závorka</li>
 </ul>
 </div>
 <div id="rstudio" class="section level4">
 <h4>RStudio</h4>
 <p>Cmd pro Mac, Ctrl pro Windows</p>
 <ul>
-<li>Cmd/Ctrl+M: <code>%&gt;%</code></li>
-<li>Cmd/Ctrl+Enter: spustit aktuální řádku kódu</li>
-<li>Cmd/Ctrl+Shift+C: zakomentovat/odkomentovat aktuální řádek</li>
-<li>Alt+- (minus): <code>&lt;-</code> (znak přiřazení v R)</li>
+<li><p>Alt+- (minus): <code>&lt;-</code> (znak přiřazení v R)</p></li>
+<li><p>Cmd/Ctrl+M: <code>%&gt;%</code></p></li>
+<li><p>Cmd/Ctrl+Enter: spustit aktuální řádku kódu</p></li>
+<li><p>Cmd/Ctrl+Shift+Enter: spustit celý skript</p></li>
+<li><p>Cmd/Ctrl+Shift+C: zakomentovat/odkomentovat aktuální řádek</p></li>
+<li><p>Cmd/Ctrl+Alt+I: nový code chunk v RMarkdown</p></li>
 </ul>
 </div>
 </div>
@@ -693,23 +727,70 @@ summary {
 <script>fitvids('.shareagain', {players: 'iframe'});</script>
 </div>
 </div>
-<div id="kam-dál-po-workshopu" class="section level2">
-<h2>Kam dál po workshopu</h2>
-<div id="v-přípravě" class="section level3">
-<h3><svg style="height:0.8em;top:.04em;position:relative;fill:#00f;" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm57.1 350.1L224.9 294c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h48c6.6 0 12 5.4 12 12v137.7l63.5 46.2c5.4 3.9 6.5 11.4 2.6 16.8l-28.2 38.8c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg> v přípravě</h3>
-<p>Vraťte se prosím v den workshopu.</p>
+<div id="kam-dál-po-workshopu" class="section level2 tabset tabset-pills">
+<h2 class="tabset tabset-pills">Kam dál po workshopu</h2>
+<div id="stáhněte-si-projekt-z-cloudu" class="section level3">
+<h3>1. Stáhněte si projekt z cloudu</h3>
+</div>
+<div id="nainstalujte-r-na-svůj-počítač" class="section level3">
+<h3>2. Nainstalujte R na svůj počítač</h3>
 <ul>
-<li><a href="https://r4ds.had.co.nz/introduction.html" class="uri">https://r4ds.had.co.nz/introduction.html</a></li>
 <li><a href="https://stat545.com/install.html" class="uri">https://stat545.com/install.html</a></li>
-<li><a href="https://education.rstudio.com/learn/beginner/" class="uri">https://education.rstudio.com/learn/beginner/</a></li>
-<li><a href="https://rstudio.cloud/learn/primers/" class="uri">https://rstudio.cloud/learn/primers/</a></li>
-<li><a href="https://moderndive.netlify.app/index.html" class="uri">https://moderndive.netlify.app/index.html</a></li>
-<li><a href="https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/" class="uri">https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/</a></li>
+</ul>
+</div>
+<div id="učte-se-dál" class="section level3">
+<h3>3. Učte se dál</h3>
+<div id="důkladnější-úvod-do-r" class="section level4">
+<h4>Důkladnější úvod do R</h4>
+<ul>
+<li><p><a href="https://r4ds.had.co.nz/introduction.html" class="uri">https://r4ds.had.co.nz/introduction.html</a></p></li>
+<li><p><a href="https://education.rstudio.com/learn/beginner/" class="uri">https://education.rstudio.com/learn/beginner/</a></p></li>
+<li><p><a href="https://rstudio.cloud/learn/primers/" class="uri">https://rstudio.cloud/learn/primers/</a></p></li>
+<li><p><a href="https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/" class="uri">https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/</a></p></li>
+<li><p><a href="https://www.learnr4free.com/en/index.html" class="uri">https://www.learnr4free.com/en/index.html</a></p></li>
+<li><p><a href="https://www.bigbookofr.com/" class="uri">https://www.bigbookofr.com/</a></p></li>
+</ul>
+<div id="jak-na-r-pokud-znáte-excel" class="section level5">
+<h5>Jak na R, pokud znáte Excel</h5>
+<ul>
 <li><a href="https://rstudio-conf-2020.github.io/r-for-excel/" class="uri">https://rstudio-conf-2020.github.io/r-for-excel/</a></li>
-<li><a href="https://www.learnr4free.com/en/index.html" class="uri">https://www.learnr4free.com/en/index.html</a></li>
+</ul>
+</div>
+</div>
+<div id="vizualizace-dat-v-r" class="section level4">
+<h4>Vizualizace dat v R</h4>
+</div>
+<div id="víc-o-rmarkdown" class="section level4">
+<h4>Víc o RMarkdown</h4>
+</div>
+<div id="jak-dostat-data-do-a-z-r" class="section level4">
+<h4>Jak dostat data do a z R</h4>
+</div>
+<div id="kategorická-data" class="section level4">
+<h4>Kategorická data</h4>
+</div>
+<div id="jak-se-dostat-k-užitečným-datům" class="section level4">
+<h4>Jak se dostat k užitečným datům</h4>
+</div>
+<div id="statistika-v-r" class="section level4">
+<h4>Statistika v R</h4>
+<ul>
+<li><a href="https://moderndive.netlify.app/index.html" class="uri">https://moderndive.netlify.app/index.html</a></li>
 <li><a href="https://learningstatisticswithr.com/" class="uri">https://learningstatisticswithr.com/</a></li>
+</ul>
+</div>
+<div id="geografická-data-a-mapy-v-r" class="section level4">
+<h4>Geografická data a mapy v R</h4>
+</div>
+<div id="verzování-kódu-práce-s-git-a-githubem" class="section level4">
+<h4>Verzování kódu: práce s git a Githubem</h4>
+<ul>
 <li><a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a></li>
 </ul>
+</div>
+<div id="dobré-praxe-pro-datovou-analýzu-v-r" class="section level4">
+<h4>Dobré praxe pro datovou analýzu v R</h4>
+</div>
 </div>
 </div>
 </div>

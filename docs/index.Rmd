@@ -122,7 +122,7 @@ Repozitář s kódem na Githubu: <https://github.com/petrbouchal/eval2020/>
 
 Win / Mac
 
-- AltGr+35 / Alt+3: #
+- <kbd>AltGr</kbd>+35 / <kbd>Alt</kbd>+<kbd>3</kbd> <kbd>#</kbd>
 - AltGr+38 / Alt+7: &
 - AltGr+; (středník) nebo Alt+96 / : Alt + 1 na české Mac klávesnici: `` `  `` (backtick)
 - AltGr+, (čárka) nebo AltGr+60/ Alt+?/< : `<`
@@ -160,19 +160,56 @@ embed_xaringan("slides/index.html", border = "none")
 ```
 
 
-## Kam dál po workshopu
+## Kam dál po workshopu {.tabset .tabset-pills}
 
-### `r fa("clock", fill = col_icon)` v přípravě
+### 1. Stáhněte si projekt z cloudu
 
-Vraťte se prosím v den workshopu.
+### 2. Nainstalujte R na svůj počítač
+
+- https://stat545.com/install.html
+
+### 3. Učte se dál
+
+#### Jak použít materiály z workshopu
+
+#### Důkladnější úvod do R
 
 - https://r4ds.had.co.nz/introduction.html
-- https://stat545.com/install.html
 - https://education.rstudio.com/learn/beginner/
 - https://rstudio.cloud/learn/primers/
-- https://moderndive.netlify.app/index.html
 - https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/
-- https://rstudio-conf-2020.github.io/r-for-excel/
+
 - https://www.learnr4free.com/en/index.html
+- https://www.bigbookofr.com/
+
+##### Jak na R, pokud znáte Excel
+
+- https://rstudio-conf-2020.github.io/r-for-excel/
+
+#### Vizualizace dat v R
+
+#### Víc o RMarkdown
+
+
+#### Jak dostat data do a z R
+
+#### Kategorická data
+
+#### Jak se dostat k užitečným datům
+
+#### Statistika v R
+
+- https://moderndive.netlify.app/index.html
 - https://learningstatisticswithr.com/
+
+#### Geografická data a mapy v R
+
+#### Verzování kódu: práce s git a Githubem
+
 - https://happygitwithr.com/
+
+#### Dobré praxe pro datovou analýzu v R
+
+project folders
+
+naming things
