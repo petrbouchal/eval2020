@@ -164,38 +164,99 @@ embed_xaringan("slides/index.html", border = "none")
 
 ### 1. Stáhněte si projekt z cloudu
 
+![](https://community-cdn.rstudio.com/uploads/default/original/3X/1/3/137319c9fc6edac322517b2371b1e1ce3905e8ca.png) 
+
+Výsledný balík pak můžete rozbalit a dvojklikem otevřít soubor s koncovkou .Rproj - tím se v RStudio otevře projekt.
+
+(viz https://community.rstudio.com/t/how-does-one-download-files-from-rstudio-cloud-onto-desktop/52132)
+
 ### 2. Nainstalujte R na svůj počítač
 
-- https://stat545.com/install.html
+Ve zkratce: potřebujete nainstalovat [R](https://cloud.r-project.org/), pak [RStudio](rstudio.com/products/rstudio/), pak v RStudiu balíky podle potřeby.
+
+Viz např návod na https://stat545.com/install.html.
 
 ### 3. Učte se dál
 
-#### Jak použít materiály z workshopu
+#### Jak použít podklady z workshopu
 
-#### Důkladnější úvod do R
+Na https://github.com/petrbouchal/eval2020/ najdete aktuální verzi materiálů tak, jak jsem je připravil
 
-- https://r4ds.had.co.nz/introduction.html
-- https://education.rstudio.com/learn/beginner/
-- https://rstudio.cloud/learn/primers/
-- https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/
+Ve vašem účtu v RStudio Cloud najdete materiály tak, jak jste si je při workshopu upravili
 
-- https://www.learnr4free.com/en/index.html
-- https://www.bigbookofr.com/
+Pokud budete chtít s materiály strávit delší čas, doporučuju buď si je stáhnout ze svého účtu a pracovat s nimi v R na vlastním počítači, nebo si [stáhnout ZIP z Githubu](https://github.com/petrbouchal/eval2020/archive/main.zip) a po rozbalení otevřít v RStudiu na Vašem počítači.
+
+Pro porozumění práci v R u typické datové analýzy doporučuju projít a postupným spouštěním proklikat soubor `03_report-reseni.Rmd`.
+
+RStudio Cloud vám v bezplatné verzi umožní jen omezený čas užívání za měsíc.
+
+#### Důkladnější úvod do R / tidyverse
+
+Kniha: https://r4ds.had.co.nz/introduction.html
+
+Video: https://education.rstudio.com/learn/beginner/
+
+Interaktivní tutoriály: https://rstudio.cloud/learn/primers/
+
+Video z webináře: https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/
+
+Komplet seznam online knih o R na https://www.bigbookofr.com/
+
+Prohledávatelný seznam vzdělávacích zdrojů k R: https://www.learnr4free.com/en/index.html
 
 ##### Jak na R, pokud znáte Excel
 
-- https://rstudio-conf-2020.github.io/r-for-excel/
+viz [tento tutoriál](https://rstudio-conf-2020.github.io/r-for-excel/)
+
+Bonus: pro organizaci dat v excelových souborech je užitečné dodržovat dobré praxe popsané v článku [Data Organization in Spreadsheets  (Broman & Woo 2017)](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989). 
 
 #### Vizualizace dat v R
 
+Doporučuju používat balík {ggplot2} - ochutnávku jste viděli na workshopu a je ve slidech. [Úvod dokumentace](https://ggplot2.tidyverse.org/) do balíku obsahuje i dobrý rozcestník na další zdroje.
+
+Kompletně vizualizaci dat v {ggplot2} pojednává kniha [Data Visualization: A practical introduction](https://socviz.co/) (Healy 2019), popř. [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) (Wilke 2019).
+
+Pro webovou a interaktivní vizualizaci doporučuji prozkoumat balíky [{plotly}](https://plotly-r.com/) a [{ggiraph}](https://davidgohel.github.io/ggiraph/).
+
 #### Víc o RMarkdown
 
+https://rmarkdown.rstudio.com/ a [RMarkdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/).
 
 #### Jak dostat data do a z R
 
-#### Kategorická data
+Nejspíš budete pracovat s dvěma formáty dat: CSV a Excel.
+
+Pokud chcete načíst soubor z excelu, použijte funkci `read_excel()` z balíku {readxl}. V nápovědě k funkci najdete instrukce, jak načíst konkrétní listy souboru nebo jak přiměr R poznat v excelových souborech správné datové typy (datumy atd.)
+
+Pokud potřebujete načíst CSV, použijte `read_csv()` z balíku `readr`. 
+
+Pokud potřebujete vyexportovat data z R do Excelu, použijte balík {writexl} nebo funkci `write_excel_csv()`/`write_excel_csv2()` v balíku {readr}. 
+
+Funkce pro načítání a vytváření CSV souborů v balíku {reader} mají i verzi pro "evropský" formát: desetinné čárky místo teček, buňky oddělené středníky místo čárek. Tyto funkce končí číslem 2: `read/write_csv2()`.
+
+#### Kategorická a textová data
+
+Pokud jste z SPSS a Staty zvyklí na proměnné s "labels", budou vám povědomé "factors" v R: sloupce (obecně proměnné/objekty), kde jednotlivé hodnoty nabývají jednu z daných textových hodnot, přičemž tyto "labels" lze řadit a podle toho se objeví i v tabulkách a grafech. Taková data se liší od standardních textocých ("character") proměnných.
+
+Na práci s takovými daty je stavěný balík {forcars} (přesmyčka z "factors"), další součást tidyverse. Dokumentace balíku na [forcats.tidyverse.org/](https://forcats.tidyverse.org/) je i dobrý úvod do práce s faktorovými proměnnými v R.
+
+Bonus: v poslední době se zlepšují nástroje na analýzu textu v R, včetně češtiny. Obecný úvod do analýzy textu v R kompatibilní s logikou {tidyverse} najdete v knize [Tidy Text Mining in R](https://www.tidytextmining.com/).
 
 #### Jak se dostat k užitečným datům
+
+Pro evaluátorskou potřebu jsou užitečné tyto zdroje dat, ke kterých se dá v R dobře dostat:
+
+- Eurostat: balík [{eurostat}](https://cran.r-project.org/package=eurostat)
+- ČSÚ: balík [{czso}](https://petrbouchal.xyz/czso)
+- OECD: balík [{oecd}](https://cran.r-project.org/package=OECD)
+- Státní pokladna MFČR: balík [{oecd}](https://petrbouchal.xyz/statnipokladna) - rozpočty, přájmy a výdaje a účetní výkazy všech českých veřejných organizací: ministerstev, obcí aj.
+
+Všechny tyto balíky sledují stejnou logiku: můžete si stáhnout kompletní katalog otevřených dat dané instituce a následně si podle identifikátoru z katalogu stáhnout konkrétní tabulku.
+
+- Česká geografická data od ČÚZK: balíky [{CzechData}](https://jancaha.github.io/CzechData/index.html) a {RCzechia}: fungují podobně, {RCzechia} zprostředkuje přístup i ke geokódovacímu rozhraní ČÚZK ("zadám adresu, dostanu souřadnice")
+- Geografická data Eurostatu: [{GiscoR}](https://dieghernan.github.io/giscoR/) - včetně všech českých obcí aj.
+
+Širší úvod https://petrbouchal.xyz/slides/pssau2020-07/
 
 #### Statistika v R
 
@@ -204,12 +265,50 @@ embed_xaringan("slides/index.html", border = "none")
 
 #### Geografická data a mapy v R
 
+R pro mě zastane většinu funkcí stadnardního GIS softwaru jako ESRI nebo QGIS, opět s výhodou že práci s daty mám zaznamenanou v kódu, tj. zdokumentovanou a reprodukovalntou.
+
+Dobrý úvod do možností práce s geografickými daty v R najdete v online knize [Geocomputation with R](https://bookdown.org/robinlovelace/geocompr/) (Lovelace et al. 2019).
+
+Hlavní balík, který budete používat, se jmenuje {sf} a má skvělou dokumentaci na [r-spatial.github.io/sf/](https://r-spatial.github.io/sf/index.html).
+
+K vizualizace lze použít {ggplot2} nebo [{tmap}](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html), na tvorbu webových map [{mapview}](https://r-spatial.github.io/mapview/) nebo [{leaflet}](https://rstudio.github.io/leaflet/).
+
 #### Verzování kódu: práce s git a Githubem
 
-- https://happygitwithr.com/
+Abyste se neztratili ve skriptech s názvy jako `skript_hotovo_v2_final3_fin.R`, měli byste na svou analytickou práci používat i systém k verzování kódu. Nejběžnější je systém git.
+
+Nejlepší úvod do Git pro práci v R je [happygitwithr.com/](https://happygitwithr.com/).
 
 #### Dobré praxe pro datovou analýzu v R
 
-project folders
+Abyste se ve své práci vyznali, je dobré zvyknout si dodržovat pár dobrých praxí ve dvou zdálnivě nudných oblastech:
 
-naming things
+1. pojmenování věcí, se kterými pracujete (soubory, objekty, proměnné): projděte si https://speakerdeck.com/jennybc/how-to-name-files - jsou tam rady užitečné i mimo svět R.
+1. organizace projektů v adresářích: projděte si https://rstats.wtf/project-oriented-workflow.html
+
+#### Interaktivní webové aplikace
+
+viz systém {shiny}:
+
+- https://shiny.rstudio.com/
+- kniha [Mastering Shiny](https://mastering-shiny.org/)
+
+#### Nebojte se ptát, hledat a zapojit
+
+Jeden z důvodů, proč propaguju R, je přívětivost lidí, kteří s ním pracují a dostupnost dobrých návodů a otázek a odpovědí. 
+
+Hledejte/ptejte se
+
+- Googlem
+- na [RStudio Community](https://community.rstudio.com/)
+- na twitteru [#rstats](https://twitter.com/hashtag/rstats?lang=en)
+- na stackoverflow [pod tagem r](https://stackoverflow.com/questions/tagged/r) popř. s tagy nazvanými podle názvu balíku, např. [ggplot2](https://stackoverflow.com/questions/tagged/ggplot2).
+
+Připojte se
+
+Sledujte akce [TidyTuesday](https://www.tidytuesday.com/) a aktivity [RLadies](https://rladies.org/).
+
+Sledujte
+
+- konference [rstudio::conf a rstudio::global](https://rstudio.com/resources/rstudioconf-2020/)
+- [spoustu dalších online akcí](https://jumpingrivers.github.io/meetingsR/events.html)
