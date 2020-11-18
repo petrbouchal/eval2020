@@ -3,10 +3,10 @@ library(skimr)
 
 # Úkol 0: stáhnout a načíst data ------------------------------------------
 
-tf <- tempfile("")
+tf <- tempfile(fileext = ".zip")
 download.file("https://www.gstatic.com/covid19/mobility/Region_Mobility_Report_CSVs.zip",
-              destfile = "x.zip")
-unzip("x.zip", exdir = "data-zdroje/google/")
+              destfile = tf)
+unzip(tf, exdir = "data-zdroje/google/")
 
 googledata <- read_csv("data-zdroje/google/2020_CZ_Region_Mobility_Report.csv")
 
