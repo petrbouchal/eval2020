@@ -249,6 +249,7 @@ Pro evaluátorskou potřebu jsou užitečné tyto zdroje dat, ke kterých se dá
 - Eurostat: balík [{eurostat}](https://cran.r-project.org/package=eurostat)
 - ČSÚ: balík [{czso}](https://petrbouchal.xyz/czso)
 - OECD: balík [{oecd}](https://cran.r-project.org/package=OECD)
+- Světová banka: balík [{wbstats}](https://nset-ornl.github.io/wbstats/)
 - Státní pokladna MFČR: balík [{oecd}](https://petrbouchal.xyz/statnipokladna) - rozpočty, přájmy a výdaje a účetní výkazy všech českých veřejných organizací: ministerstev, obcí aj.
 
 Všechny tyto balíky sledují stejnou logiku: můžete si stáhnout kompletní katalog otevřených dat dané instituce a následně si podle identifikátoru z katalogu stáhnout konkrétní tabulku.
