@@ -492,7 +492,7 @@ Další užitečné
 ```{r include=FALSE}
 options(tibble.print_min = 10)
 
-gdta_orig <- read_csv(here::here("data-zdroje", "google",
+gdta_orig <- read_csv(here::here("data-zdroje",
                           "2020_CZ_Region_Mobility_Report.csv"))
 
 gdta <- gdta_orig %>% 

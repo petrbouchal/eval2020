@@ -20,14 +20,14 @@ Sys.setlocale(category = "LC_ALL", "cs_CZ.UTF-8") # výchozí čeština pro form
 ```
 
 ```{r stazeni-dat, eval=F}
-download.file("https://www.gstatic.com/covid19/mobility/Region_Mobility_Report_CSVs.zip",
-              destfile = "x.zip")
-unzip("x.zip", exdir = "data-zdroje/google/")
+# zmenta eval=F na eval=T pro uvodni stazeni nebo pozdejsi aktualizaci dat z Googlu a pro instalaci baliku
+
+source("0_priprava.R")
 ```
 
 
 ```{r nacteni-dat}
-googledata <- read_csv("data-zdroje/google/2020_CZ_Region_Mobility_Report.csv")
+googledata <- read_csv("data-zdroje/2020_CZ_Region_Mobility_Report.csv")
 ```
 
 ```{r uprava-dat}
