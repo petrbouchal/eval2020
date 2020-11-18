@@ -93,6 +93,32 @@ Adresa pro stažení materiálů: (např. pro vlastní potřebu / uchování; p�
 
 Repozitář s kódem na Githubu: <https://github.com/petrbouchal/eval2020/>
 
+##### Jak použít podklady z workshopu
+
+Na https://github.com/petrbouchal/eval2020/ najdete aktuální verzi materiálů tak, jak jsem je připravil
+
+Ve vašem účtu v RStudio Cloud najdete materiály tak, jak jste si je při workshopu upravili
+
+Pokud budete chtít s materiály strávit delší čas, doporučuju buď si je stáhnout ze svého účtu a pracovat s nimi v R na vlastním počítači, nebo si [stáhnout ZIP z Githubu](https://github.com/petrbouchal/eval2020/archive/main.zip) a po rozbalení otevřít v RStudiu na Vašem počítači.
+
+Pro porozumění práci v R u typické datové analýzy doporučuju projít a postupným spouštěním proklikat soubor `03_report-reseni.Rmd`.
+
+RStudio Cloud vám v bezplatné verzi umožní jen omezený čas užívání za měsíc.
+
+Co kde v podkladech je a jak to použít:
+
+> Celý adresář, který se rozbalí ze staženého ZIP archivu, je *RStudio projekt*. Poklepáním na soubor `eval2020.Rproj` tento projekt otevřete v RStudio, pokud ho máte nainstalované.
+
+> Pokud byste chtěli aktualizované podklady načíst v RStudiu Cloud, nejjednodušší je vytvořit nový projekt: klikněte na šipku dolů u tlačítka `New project`, vyberte `New project from Git repository` a vložte adresu https://github.com/petrbouchal/eval2020/.
+
+- jako první spusťe skript 0_priprava.R: tím se nainstalují potřebné balíky a stáhnou data z googlu používaná v dalších skriptech
+- pak už můžete pracovat s R skripty (`01_prvni-skript.R` a `02_tabulkova-data.R`/`02_tabulkova-data-reseni.R`) i s RMarkdown reportem (`03_report-reseni.Rmd`)
+- ve skriptech `tidyverse-priklady.R` a `ggplot2-priklady.R` najdete kód pro příklady ze slidů: transformace dat v {tidyverse} i vizualizace dat v {ggplot2}.
+- v adresáři `data-zdroje` je stažená aktuální verze dat z Googlu; spuštěním skriptu `01_prvni-skript.R` data aktualizujete stažením nové verze z Googlu.
+- v adresáři `docs/` najdete dokumentaci, která je i na webu, včetně slidů. Pro zajímavost: v souborech Rmd najdete zdrojový kód dokumenace v Markdownu.
+
+
+
 ### Volitelné nahlédnutí do světa R
 
 Pokud se nemůžete dočkat a R je pro vás úplně nové, doporučuju jedno z následujícího: 
@@ -180,18 +206,6 @@ Viz např návod na https://stat545.com/install.html.
 
 ### 3. Učte se dál
 
-#### Jak použít podklady z workshopu
-
-Na https://github.com/petrbouchal/eval2020/ najdete aktuální verzi materiálů tak, jak jsem je připravil
-
-Ve vašem účtu v RStudio Cloud najdete materiály tak, jak jste si je při workshopu upravili
-
-Pokud budete chtít s materiály strávit delší čas, doporučuju buď si je stáhnout ze svého účtu a pracovat s nimi v R na vlastním počítači, nebo si [stáhnout ZIP z Githubu](https://github.com/petrbouchal/eval2020/archive/main.zip) a po rozbalení otevřít v RStudiu na Vašem počítači.
-
-Pro porozumění práci v R u typické datové analýzy doporučuju projít a postupným spouštěním proklikat soubor `03_report-reseni.Rmd`.
-
-RStudio Cloud vám v bezplatné verzi umožní jen omezený čas užívání za měsíc.
-
 #### Důkladnější úvod do R / tidyverse
 
 Kniha: https://r4ds.had.co.nz/introduction.html
@@ -206,7 +220,7 @@ Komplet seznam online knih o R na https://www.bigbookofr.com/
 
 Prohledávatelný seznam vzdělávacích zdrojů k R: https://www.learnr4free.com/en/index.html
 
-##### Jak na R, pokud znáte Excel
+#### Jak na R, pokud znáte Excel
 
 viz [tento tutoriál](https://rstudio-conf-2020.github.io/r-for-excel/)
 

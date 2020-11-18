@@ -654,6 +654,28 @@ summary {
 <p>Adresa pro načtení materiálů do RStudio Cloud: <a href="https://github.com/petrbouchal/eval2020" class="uri">https://github.com/petrbouchal/eval2020</a></p>
 <p>Adresa pro stažení materiálů: (např. pro vlastní potřebu / uchování; při workshopu by neměla být potřeba) <a href="https://github.com/petrbouchal/eval2020/archive/main.zip" class="uri">https://github.com/petrbouchal/eval2020/archive/main.zip</a></p>
 <p>Repozitář s kódem na Githubu: <a href="https://github.com/petrbouchal/eval2020/" class="uri">https://github.com/petrbouchal/eval2020/</a></p>
+<div id="jak-použít-podklady-z-workshopu" class="section level5">
+<h5>Jak použít podklady z workshopu</h5>
+<p>Na <a href="https://github.com/petrbouchal/eval2020/" class="uri">https://github.com/petrbouchal/eval2020/</a> najdete aktuální verzi materiálů tak, jak jsem je připravil</p>
+<p>Ve vašem účtu v RStudio Cloud najdete materiály tak, jak jste si je při workshopu upravili</p>
+<p>Pokud budete chtít s materiály strávit delší čas, doporučuju buď si je stáhnout ze svého účtu a pracovat s nimi v R na vlastním počítači, nebo si <a href="https://github.com/petrbouchal/eval2020/archive/main.zip">stáhnout ZIP z Githubu</a> a po rozbalení otevřít v RStudiu na Vašem počítači.</p>
+<p>Pro porozumění práci v R u typické datové analýzy doporučuju projít a postupným spouštěním proklikat soubor <code>03_report-reseni.Rmd</code>.</p>
+<p>RStudio Cloud vám v bezplatné verzi umožní jen omezený čas užívání za měsíc.</p>
+<p>Co kde v podkladech je a jak to použít:</p>
+<blockquote>
+<p>Celý adresář, který se rozbalí ze staženého ZIP archivu, je <em>RStudio projekt</em>. Poklepáním na soubor <code>eval2020.Rproj</code> tento projekt otevřete v RStudio, pokud ho máte nainstalované.</p>
+</blockquote>
+<blockquote>
+<p>Pokud byste chtěli aktualizované podklady načíst v RStudiu Cloud, nejjednodušší je vytvořit nový projekt: klikněte na šipku dolů u tlačítka <code>New project</code>, vyberte <code>New project from Git repository</code> a vložte adresu <a href="https://github.com/petrbouchal/eval2020/" class="uri">https://github.com/petrbouchal/eval2020/</a>.</p>
+</blockquote>
+<ul>
+<li>jako první spusťe skript 0_priprava.R: tím se nainstalují potřebné balíky a stáhnou data z googlu používaná v dalších skriptech</li>
+<li>pak už můžete pracovat s R skripty (<code>01_prvni-skript.R</code> a <code>02_tabulkova-data.R</code>/<code>02_tabulkova-data-reseni.R</code>) i s RMarkdown reportem (<code>03_report-reseni.Rmd</code>)</li>
+<li>ve skriptech <code>tidyverse-priklady.R</code> a <code>ggplot2-priklady.R</code> najdete kód pro příklady ze slidů: transformace dat v {tidyverse} i vizualizace dat v {ggplot2}.</li>
+<li>v adresáři <code>data-zdroje</code> je stažená aktuální verze dat z Googlu; spuštěním skriptu <code>01_prvni-skript.R</code> data aktualizujete stažením nové verze z Googlu.</li>
+<li>v adresáři <code>docs/</code> najdete dokumentaci, která je i na webu, včetně slidů. Pro zajímavost: v souborech Rmd najdete zdrojový kód dokumenace v Markdownu.</li>
+</ul>
+</div>
 </div>
 </div>
 <div id="volitelné-nahlédnutí-do-světa-r" class="section level3">
@@ -676,6 +698,9 @@ summary {
 </div>
 <div id="materialy" class="section level2 tabset tabset-pills">
 <h2 class="tabset tabset-pills">Materiály pro práci na workshopu</h2>
+<blockquote>
+<p>Materiály jsou zveřejněný pod licencí Creative Commons CC-BY <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAABGdBTUEAANbY1E9YMgAAAJZQTFRF////7u7u3d3dys7KzMzMyMzIxsrGxcbFur+6u7u7s7iyq7GqqqqqmZmZlJmTj5CPiIiIh4eHhoaGgICAfYJ9d3d3cnZxZ2tnZmZmW15bVVVVS0xLREREQ0NDQkJCQUJBOz07OTs5MzMzMTMxLjAuJygnJCUjIiIiISEhICAgGRkZERERDxAPDg4ODQ4NDQ0NDQ0MAAAADbeuvgAAAMNJREFUeNqtk9sSgiAQQJekslaNLpgZ3exiZWr7/z/XEI6N00spO/DCMocDywJZDiCwGhqIOpYkqiWVB4jOo7WfAQa5qA9RZ0R33hG4v36sOa0Q++tuwEIAT0kxRSkHdUR0Ju88gN5k5j/ABY0gjUHKjPkeyALRHZq8GfCvYUic6arEib6zzBHHg9rwd78vQxVlTPogy6ZhCyCWAryMIqYo6cHm1HjDVsDDzXKVg+e0Bm4vFv4hhjSreLt7106x3cuW4wXCCZ5As6hO5AAAAABJRU5ErkJggg==" /></a><br />Toto dílo podléhá licenci <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Uveďte původ 4.0 Mezinárodní License</a>. Můžete je využívat bez omezení.</p>
+</blockquote>
 <div id="materiály-ke-stažení" class="section level3">
 <h3>Materiály ke stažení</h3>
 <p>Adresa pro načtení materiálů do RStudio Cloud: <a href="https://github.com/petrbouchal/eval2020" class="uri">https://github.com/petrbouchal/eval2020</a></p>
@@ -742,14 +767,6 @@ summary {
 </div>
 <div id="učte-se-dál" class="section level3">
 <h3>3. Učte se dál</h3>
-<div id="jak-použít-podklady-z-workshopu" class="section level4">
-<h4>Jak použít podklady z workshopu</h4>
-<p>Na <a href="https://github.com/petrbouchal/eval2020/" class="uri">https://github.com/petrbouchal/eval2020/</a> najdete aktuální verzi materiálů tak, jak jsem je připravil</p>
-<p>Ve vašem účtu v RStudio Cloud najdete materiály tak, jak jste si je při workshopu upravili</p>
-<p>Pokud budete chtít s materiály strávit delší čas, doporučuju buď si je stáhnout ze svého účtu a pracovat s nimi v R na vlastním počítači, nebo si <a href="https://github.com/petrbouchal/eval2020/archive/main.zip">stáhnout ZIP z Githubu</a> a po rozbalení otevřít v RStudiu na Vašem počítači.</p>
-<p>Pro porozumění práci v R u typické datové analýzy doporučuju projít a postupným spouštěním proklikat soubor <code>03_report-reseni.Rmd</code>.</p>
-<p>RStudio Cloud vám v bezplatné verzi umožní jen omezený čas užívání za měsíc.</p>
-</div>
 <div id="důkladnější-úvod-do-r-tidyverse" class="section level4">
 <h4>Důkladnější úvod do R / tidyverse</h4>
 <p>Kniha: <a href="https://r4ds.had.co.nz/introduction.html" class="uri">https://r4ds.had.co.nz/introduction.html</a></p>
@@ -758,11 +775,11 @@ summary {
 <p>Video z webináře: <a href="https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/" class="uri">https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/</a></p>
 <p>Komplet seznam online knih o R na <a href="https://www.bigbookofr.com/" class="uri">https://www.bigbookofr.com/</a></p>
 <p>Prohledávatelný seznam vzdělávacích zdrojů k R: <a href="https://www.learnr4free.com/en/index.html" class="uri">https://www.learnr4free.com/en/index.html</a></p>
-<div id="jak-na-r-pokud-znáte-excel" class="section level5">
-<h5>Jak na R, pokud znáte Excel</h5>
+</div>
+<div id="jak-na-r-pokud-znáte-excel" class="section level4">
+<h4>Jak na R, pokud znáte Excel</h4>
 <p>viz <a href="https://rstudio-conf-2020.github.io/r-for-excel/">tento tutoriál</a></p>
 <p>Bonus: pro organizaci dat v excelových souborech je užitečné dodržovat dobré praxe popsané v článku <a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989">Data Organization in Spreadsheets (Broman &amp; Woo 2017)</a>.</p>
-</div>
 </div>
 <div id="vizualizace-dat-v-r" class="section level4">
 <h4>Vizualizace dat v R</h4>
