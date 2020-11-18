@@ -108,6 +108,8 @@ Pokud se nemůžete dočkat a R je pro vás úplně nové, doporučuju jedno z n
 
 ## Materiály pro práci na workshopu {#materialy .tabset .tabset-pills}
 
+> Materiály jsou zveřejněný pod licencí Creative Commons CC-BY <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Toto dílo podléhá licenci <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Uveďte původ 4.0 Mezinárodní License</a>. Můžete je využívat bez omezení.
+
 ### Materiály ke stažení
 
 Adresa pro načtení materiálů do RStudio Cloud: <https://github.com/petrbouchal/eval2020>
