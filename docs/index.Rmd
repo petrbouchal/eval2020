@@ -206,6 +206,16 @@ Viz např návod na https://stat545.com/install.html.
 
 ### 3. Učte se dál
 
+Kromě nápovědy zmíněné ve slidech jsou užitečné i [taháky (cheatsheets) od RStudia](https://rstudio.com/resources/cheatsheets/), mj. tyto:
+
+- [Rstudio](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf)
+- [Data Import](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-import.pdf)
+- [Data Transformation](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf)
+- [Data Visualization](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf)
+
+Jediný otevřený český úvod do R, o kterém vím, je [Úvod do analýzy dat v R](https://alesvomacka.github.io/Uvod_do_analyzy_dat_v_R) z Filosofické fakulty UK (Mazák a Vomáčka 2020)
+
+
 #### Důkladnější úvod do R / tidyverse
 
 Kniha: https://r4ds.had.co.nz/introduction.html
@@ -215,6 +225,26 @@ Video: https://education.rstudio.com/learn/beginner/
 Interaktivní tutoriály: https://rstudio.cloud/learn/primers/
 
 Video z webináře: https://rstudio.com/resources/webinars/a-gentle-introduction-to-tidy-statistics-in-r/
+
+["Tips on Learning to Code"](https://moderndive.netlify.app/1-2-code.html) z knihy *Modern Dive* (viz níže)
+
+[Data Science in a Box](https://datasciencebox.org/)
+
+Vybrané části knihy [Data Visualization A practical introduction, Healy (2019)]:
+
+- [jak číst nápovědu v R]((https://socviz.co/appendix.html#a-little-more-about-r))
+- [práce s kódem v R](https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown)
+- [rychlé představení základních konceptů v R]((https://socviz.co/appendix.html#a-little-more-about-r))
+- [obvyklé problémy při načítání dat](https://socviz.co/appendix.html#a-little-more-about-r)
+- [jak si napsat vlastní funkci](https://socviz.co/appendix.html#a-little-more-about-r)
+- [jak uřídit projektové složky a soubory](https://socviz.co/appendix.html#a-little-more-about-r)
+- [RyouWithMe](https://rladiessydney.org/courses/ryouwithme/) série 
+
+
+Semestrální kurzy s kompletními materiály:
+
+- [Intro to Data Science, Mine Ceninkaya-Rundel, Uni of Edinburgh](https://www.introds.org/)
+- [Stat 545, Jenny Bryan, Uni of British Columbia](https://stat545.com/)
 
 Komplet seznam online knih o R na https://www.bigbookofr.com/
 
@@ -229,6 +259,8 @@ Bonus: pro organizaci dat v excelových souborech je užitečné dodržovat dobr
 #### Vizualizace dat v R
 
 Doporučuju používat balík {ggplot2} - ochutnávku jste viděli na workshopu a je ve slidech. [Úvod dokumentace](https://ggplot2.tidyverse.org/) do balíku obsahuje i dobrý rozcestník na další zdroje.
+
+Kanonický úvod do {ggplot2} je [*ggplot2: Elegant Graphics for Data Analysis* (Wickham, Navarro a Lin Pedersen 2020) (3. vydání)](https://ggplot2-book.org/)
 
 Kompletně vizualizaci dat v {ggplot2} pojednává kniha [Data Visualization: A practical introduction](https://socviz.co/) (Healy 2019), popř. [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) (Wilke 2019).
 
