@@ -839,7 +839,7 @@ Kód přímo v textu: dnes je `r Sys.Date()`
 
 class: large,  middle, center
 
-otevřete `report.Rmd`
+otevřete `03_report-reseni.Rmd`
 
 
 ---
