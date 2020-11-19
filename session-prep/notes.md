@@ -28,4 +28,31 @@ https://www.youtube.com/watch?v=ckW9sSdIVAc&feature=youtu.be
 
 https://hdsr.mitpress.mit.edu/pub/0mb0zzlc/release/5 + https://textbook.coleridgeinitiative.org/
 
-## 
+https://hbctraining.github.io/Training-modules/Tidyverse_ggplot2/lessons/intro_tidyverse.html
+
+https://blog.shotwell.ca/posts/r_for_excel_users/
+
+
+
+## Teaching the tidyverse
+
+- https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/
+- https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-2-data-visualisation/
+- https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-3-data-wrangling-and-tidying/
+- https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-4-when-to-purrr/
+- Mine Cetinkaya-Rundel Let them eat cake https://www.youtube.com/watch?v=fQ4t7p6ZXDg&feature=youtu.be
+
+
+## Tools for interactive teaching
+
+- https://mine-cetinkaya-rundel.github.io/teach-r-online/02-tutorial/02-tutorial.html#1
+- 
+
+## Remote teaching tips and guides
+
+- https://education.rstudio.com/blog/2020/03/teaching-online-on-short-notice/
+- https://rstudio.com/resources/webinars/teaching-online-at-short-notice/
+- https://carpentries.org/blog/2020/03/tips-for-teaching-online/
+- https://elizabethwickes.com/2020/03/12/tips-for-live-teaching-tech-online-deeply-informed-by-the-carpentries/
+
+
